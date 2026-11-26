@@ -19,12 +19,19 @@ class DCE_RL_Navigation_Task(NavigationTask):
     # This was the original code.
 
     def process_obs_for_task(self):
+        target_vector_world = torch.zeros_like(self.obs_dict["robot_position"])
+        if self.target_position.shape[1] == 2:
+            target_vector_world[:, :2] = (
+                self.target_position - self.obs_dict["robot_position"][:, :2]
+            )
+        else:
+            target_vector_world[:] = self.target_position - self.obs_dict["robot_position"]
         vec_to_target = quat_rotate_inverse(
             self.obs_dict["robot_vehicle_orientation"],
-            (self.target_position - self.obs_dict["robot_position"]),
+            target_vector_world,
         )
         dist_to_tgt = torch.norm(vec_to_target, dim=1)
-        self.task_obs["observations"][:, 0:3] = vec_to_target / dist_to_tgt.unsqueeze(1)
+        self.task_obs["observations"][:, 0:3] = vec_to_target / dist_to_tgt.clamp(min=1e-3).unsqueeze(1)
         self.task_obs["observations"][:, 3] = dist_to_tgt / 5.0
         euler_angles = ssa(get_euler_xyz_tensor(self.obs_dict["robot_vehicle_orientation"]))
         self.task_obs["observations"][:, 4:6] = euler_angles[:, 0:2]

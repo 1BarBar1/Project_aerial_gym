@@ -9,12 +9,13 @@ import numpy as np
 
 class ForestEnvCfg:
     class env:
-        num_envs = 64
+        num_envs = 4
         num_env_actions = 4  # this is the number of actions handled by the environment
         # potentially some of these can be input from the RL agent for the robot and
         # some of them can be used to control various entities in the environment
         # e.g. motion of obstacles, etc.
-        env_spacing = 5.0  # not used with heightfields/trimeshes
+        # env_spacing = 5.0  # not used with heightfields/trimeshes
+        env_spacing = 40.0  # <--- Increase this to >40 so the long forests don't overlap
 
         num_physics_steps_per_env_step_mean = 10  # number of steps between camera renders mean
         num_physics_steps_per_env_step_std = 0  # number of steps between camera renders std
@@ -31,15 +32,21 @@ class ForestEnvCfg:
         write_to_sim_at_every_timestep = False  # write to sim at every timestep
 
         use_warp = True
-        lower_bound_min = [-5.0, -5.0, -1.0]  # lower bound for the environment space
-        lower_bound_max = [-5.0, -5.0, -1.0]  # lower bound for the environment space
-        upper_bound_min = [5.0, 5.0, 3.0]  # upper bound for the environment space
-        upper_bound_max = [5.0, 5.0, 3.0]  # upper bound for the environment space
+        # lower_bound_min = [-5.0, -5.0, -1.0]  # lower bound for the environment space
+        # lower_bound_max = [-5.0, -5.0, -1.0]  # lower bound for the environment space
+        # upper_bound_min = [5.0, 5.0, 3.0]  # upper bound for the environment space
+        # upper_bound_max = [5.0, 5.0, 3.0]  # upper bound for the environment space
+        # Stretch the X-axis from 0 to 40 meters, keep Y narrow (-4 to 4 meters)
+        lower_bound_min = [-5.0, -4.0, -1.0]  
+        lower_bound_max = [-5.0, -4.0, -1.0]  
+        
+        upper_bound_min = [35.0, 4.0, 3.0]   
+        upper_bound_max = [35.0, 4.0, 3.0]
 
     class env_config:
         include_asset_type = {
             "trees": True,
-            "objects": True,
+            "objects": False,
             "bottom_wall": True,
         }
 

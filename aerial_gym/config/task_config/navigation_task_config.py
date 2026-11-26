@@ -5,26 +5,28 @@ from aerial_gym import AERIAL_GYM_DIRECTORY
 class task_config:
     seed = -1
     sim_name = "base_sim"
-    env_name = "env_with_obstacles"
+    env_name = "slope_forest_env"
     robot_name = "lmf2"
     controller_name = "lmf2_velocity_control"
     args = {}
-    num_envs = 1024
+    num_envs = 128
     use_warp = True
     headless = True
     device = "cuda:0"
     observation_space_dim = 13 + 4 + 64  # root_state + action_dim _+ latent_dims
     privileged_observation_space_dim = 0
-    action_space_dim = 4
-    episode_len_steps = 100  # real physics time for simulation is this value multiplied by sim.dt
+    action_space_dim = 3
+    episode_len_steps = 350  # real physics time for simulation is this value multiplied by sim.dt
 
     return_state_before_reset = (
         False  # False as usually state is returned for next episode after reset
     )
     # user can set the above to true if they so desire
 
-    target_min_ratio = [0.90, 0.1, 0.1]  # target ratio w.r.t environment bounds in x,y,z
-    target_max_ratio = [0.94, 0.90, 0.90]  # target ratio w.r.t environment bounds in x,y,z
+    target_min_ratio = [0.9, 0.5, 0.1]  # target ratio w.r.t environment bounds in x,y,z
+    target_max_ratio = [0.90, 0.5, 0.1]  # target ratio w.r.t environment bounds in x,y,z
+    ground_ray_max_distance = 100.0
+    target_ground_clearance = 2.0
 
     reward_parameters = {
         "pos_reward_magnitude": 5.0,
@@ -40,10 +42,14 @@ class task_config:
         "yawrate_action_diff_penalty_exponent": 3.33,
         "x_absolute_action_penalty_magnitude": 0.1,
         "x_absolute_action_penalty_exponent": 0.3,
-        "z_absolute_action_penalty_magnitude": 1.5,
+        "z_absolute_action_penalty_magnitude": 0.2,
         "z_absolute_action_penalty_exponent": 1.0,
         "yawrate_absolute_action_penalty_magnitude": 1.5,
         "yawrate_absolute_action_penalty_exponent": 2.0,
+        "ray_cast_distance_penalty_magnitude": 0.1,
+        "ray_cast_distance_penalty_exponent": 1.0,
+        "ground_height_reward_magnitude": 20.0,
+        "ground_height_reward_exponent": 0.5,
         "collision_penalty": -100.0,
     }
 

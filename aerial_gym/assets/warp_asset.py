@@ -54,7 +54,8 @@ class WarpAsset(BaseAsset):
             generalized_mesh_vertices = np.c_[mesh.vertices, np.ones(len(mesh.vertices))]
             # transform vertices to the correct frame
             generalized_mesh_vertices_tf = np.matmul(mesh_tf, generalized_mesh_vertices.T).T
-            mesh.vertices[:] = generalized_mesh_vertices_tf[:, 0:3]
+            scale = float(getattr(self.options, "scale", 1.0))
+            mesh.vertices[:] = generalized_mesh_vertices_tf[:, 0:3] * scale
 
             # If the configuration specifies that the asset should have per_link_segmentation,
             # then we allot increasing segmentation values to each link, unless the link is

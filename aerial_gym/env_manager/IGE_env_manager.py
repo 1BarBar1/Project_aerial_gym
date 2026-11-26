@@ -141,7 +141,28 @@ class IsaacGymEnv(BaseManager):
         plane_params.normal = gymapi.Vec3(0.0, 0.0, 1.0)
         self.gym.add_ground(self.sim, plane_params)
         return
+    # File: aerial_gym/env_manager/IGE_env_manager.py
 
+    def create_sloped_ground_plane(self):
+        """Create a sloped ground plane for more challenging navigation"""
+        plane_params = gymapi.PlaneParams()
+        
+        # Create a slope in the X direction (approximately 10 degrees)
+        # Normal vector defines the plane orientation
+        slope_angle = 0.1745  # ~10 degrees in radians
+        plane_params.normal = gymapi.Vec3(
+            np.sin(slope_angle), 
+            0.0, 
+            np.cos(slope_angle)
+        )
+        
+        # Optional: adjust friction properties for the slope
+        plane_params.static_friction = 0.5
+        plane_params.dynamic_friction = 0.5
+        plane_params.restitution = 0.0
+        
+        self.gym.add_ground(self.sim, plane_params)
+        return
     def create_env(self, env_id):
         """
         Create an environment with the given id
@@ -198,6 +219,10 @@ class IsaacGymEnv(BaseManager):
             asset_info_dict["collision_mask"],
             asset_segmentation_id,
         )
+
+        scale = float(asset_info_dict.get("scale", 1.0))
+        if scale != 1.0:
+            self.gym.set_actor_scale(env_handle, asset_handle, scale)
 
         if asset_info_dict["asset_type"] == "robot":
             self.num_rigid_bodies_robot = self.gym.get_actor_rigid_body_count(

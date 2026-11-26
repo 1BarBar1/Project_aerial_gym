@@ -13,6 +13,7 @@ from aerial_gym.registry.sim_registry import sim_config_registry
 from aerial_gym.registry.robot_registry import robot_registry
 
 import torch
+import numpy as np
 
 from aerial_gym.utils.logging import CustomLogger
 
@@ -173,6 +174,9 @@ class EnvManager(BaseManager):
             self.IGE_env.create_ground_plane()
             logger.info("[DONE] Creating ground plane in Isaac Gym Simulation")
 
+        terrain_grids = []
+        terrain_bounds = None
+
         for i in range(self.cfg.env.num_envs):
             logger.debug(f"Populating environment {i}")
             if i % 1000 == 0:
@@ -207,6 +211,13 @@ class EnvManager(BaseManager):
                         self.global_asset_counter,
                         segmentation_ctr,
                     )
+                if asset_info_dict["asset_type"] == "terrain" and "warp_asset" in asset_info_dict:
+                    verts = asset_info_dict["warp_asset"].asset_unified_mesh.vertices
+                    xs = np.unique(np.round(verts[:, 0], 5))
+                    ys = np.unique(np.round(verts[:, 1], 5))
+                    if len(xs) * len(ys) == len(verts):
+                        terrain_grids.append(verts[:, 2].reshape(len(xs), len(ys)))
+                        terrain_bounds = (float(xs[0]), float(xs[-1]), float(ys[0]), float(ys[-1]))
                 # Update this after added in WARP
                 self.global_asset_counter += 1
                 segmentation_ctr += max(ige_seg_ctr, warp_segmentation_ctr)
@@ -250,6 +261,14 @@ class EnvManager(BaseManager):
             )
 
         self.global_tensor_dict["num_obstacles_in_env"] = self.num_obs_in_env
+        if len(terrain_grids) == self.cfg.env.num_envs:
+            self.global_tensor_dict["terrain_height_grid"] = torch.tensor(
+                np.stack(terrain_grids), dtype=torch.float32, device=self.device
+            ).unsqueeze(1)
+            self.global_tensor_dict["terrain_bounds"] = terrain_bounds
+        else:
+            self.global_tensor_dict["terrain_height_grid"] = None
+            self.global_tensor_dict["terrain_bounds"] = None
 
     def prepare_sim(self):
         """

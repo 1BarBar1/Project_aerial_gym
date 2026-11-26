@@ -1,0 +1,5571 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="tree_skeleton">
+  <link name="base_link" />
+  <link name="branch_00000">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="4.433699" radius="0.018272" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="4.433699" radius="0.018272" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00000_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00000" />
+    <origin xyz="0.010869 -0.035642 2.206082" rpy="-3.13034016 -0.02141073 2.17385301" />
+  </joint>
+  <link name="branch_00001">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.678091" radius="0.018272" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.678091" radius="0.018272" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00001_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00001" />
+    <origin xyz="-0.339458 -0.030592 2.808730" rpy="-2.68629337 -1.38669264 2.59782605" />
+  </joint>
+  <link name="branch_00002">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.519317" radius="0.008986" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.519317" radius="0.008986" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00002_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00002" />
+    <origin xyz="-0.184678 0.133845 3.094394" rpy="-1.40546795 -1.17423992 1.02640278" />
+  </joint>
+  <link name="branch_00003">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.573579" radius="0.008528" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.573579" radius="0.008528" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00003_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00003" />
+    <origin xyz="0.302629 0.025567 3.240382" rpy="1.94269654 -1.10433774 -1.46740621" />
+  </joint>
+  <link name="branch_00004">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.450126" radius="0.006877" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.450126" radius="0.006877" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00004_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00004" />
+    <origin xyz="-0.175126 -0.161246 3.397548" rpy="1.69616892 -0.78933827 -0.88250998" />
+  </joint>
+  <link name="branch_00005">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.472895" radius="0.006513" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.472895" radius="0.006513" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00005_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00005" />
+    <origin xyz="-0.106636 0.164541 3.485389" rpy="-1.43882195 -0.55406962 0.48825376" />
+  </joint>
+  <link name="branch_00006">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.419900" radius="0.006210" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.419900" radius="0.006210" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00006_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00006" />
+    <origin xyz="-0.058528 -0.237613 3.532792" rpy="1.66393545 -0.69185824 -0.75351499" />
+  </joint>
+  <link name="branch_00007">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.488477" radius="0.005825" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.488477" radius="0.005825" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00007_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00007" />
+    <origin xyz="-0.211289 -0.081050 3.605246" rpy="0.81674078 -1.27642341 -0.62114588" />
+  </joint>
+  <link name="branch_00008">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.383498" radius="0.004471" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.383498" radius="0.004471" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00008_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00008" />
+    <origin xyz="-0.161717 -0.076906 3.855757" rpy="1.20622809 -1.15174194 -0.84100090" />
+  </joint>
+  <link name="branch_00009">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.372094" radius="0.004271" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.372094" radius="0.004271" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00009_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00009" />
+    <origin xyz="-0.024859 -0.211799 3.911502" rpy="1.16076219 -0.53699131 -0.35698483" />
+  </joint>
+  <link name="branch_00010">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.402232" radius="0.003973" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.402232" radius="0.003973" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00010_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00010" />
+    <origin xyz="0.088000 -0.206495 4.010408" rpy="-2.05432954 -0.15916956 0.26240278" />
+  </joint>
+  <link name="branch_00011">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.373728" radius="0.003413" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.373728" radius="0.003413" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00011_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00011" />
+    <origin xyz="0.169338 0.078593 4.031144" rpy="1.96879929 -1.06765240 -1.45418478" />
+  </joint>
+  <link name="branch_00012">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.315196" radius="0.003178" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.315196" radius="0.003178" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00012_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00012" />
+    <origin xyz="-0.100747 0.039750 4.063590" rpy="-1.43749305 -0.88407628 0.78510858" />
+  </joint>
+  <link name="branch_00013">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.295884" radius="0.002883" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.295884" radius="0.002883" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00013_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00013" />
+    <origin xyz="0.012998 -0.192472 4.148906" rpy="1.22198091 -0.30302936 -0.21306940" />
+  </joint>
+  <link name="branch_00014">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.294811" radius="0.002273" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.294811" radius="0.002273" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00014_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00014" />
+    <origin xyz="-0.113906 -0.016891 4.198799" rpy="-1.76730094 -1.31055557 1.50539563" />
+  </joint>
+  <link name="branch_00015">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.221579" radius="0.002121" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.221579" radius="0.002121" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00015_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00015" />
+    <origin xyz="-0.031211 0.018101 4.269241" rpy="-1.28164072 -0.69660287 0.52893462" />
+  </joint>
+  <link name="branch_00016">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.175085" radius="0.001766" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.175085" radius="0.001766" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00016_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00016" />
+    <origin xyz="-0.040587 -0.134365 4.299527" rpy="1.31609249 -0.98707789 -0.78813612" />
+  </joint>
+  <link name="branch_00017">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.167938" radius="0.001685" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.167938" radius="0.001685" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00017_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00017" />
+    <origin xyz="0.107069 -0.051867 4.316005" rpy="0.93955256 -1.30341601 -0.73904514" />
+  </joint>
+  <link name="branch_00018">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.269685" radius="0.001414" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.269685" radius="0.001414" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00018_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00018" />
+    <origin xyz="0.032818 -0.102429 4.505520" rpy="0.20147271 0.04725926 0.00477778" />
+  </joint>
+  <link name="branch_00019">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.134784" radius="0.001108" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.134784" radius="0.001108" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00019_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00019" />
+    <origin xyz="0.093433 -0.163957 4.322735" rpy="-1.13520874 -0.19770314 0.12629835" />
+  </joint>
+  <link name="branch_00020">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034802" radius="0.000732" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034802" radius="0.000732" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00020_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00020" />
+    <origin xyz="0.146567 -0.120810 4.396642" rpy="2.31638648 -0.78443924 -1.51425018" />
+  </joint>
+  <link name="branch_00021">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033417" radius="0.000601" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033417" radius="0.000601" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00021_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00021" />
+    <origin xyz="0.137200 -0.150662 4.411199" rpy="0.88005912 -0.74021889 -0.36135919" />
+  </joint>
+  <link name="branch_00022">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.050978" radius="0.000601" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.050978" radius="0.000601" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00022_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00022" />
+    <origin xyz="0.166332 -0.130992 4.416539" rpy="2.45183206 -0.82168279 -1.76242683" />
+  </joint>
+  <link name="branch_00023">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.415663" radius="0.007055" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.415663" radius="0.007055" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00023_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00023" />
+    <origin xyz="-0.093756 0.168340 2.873543" rpy="-1.72900427 -0.34855105 0.40703995" />
+  </joint>
+  <link name="branch_00024">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.318381" radius="0.004061" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.318381" radius="0.004061" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00024_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00024" />
+    <origin xyz="-0.184490 -0.106288 2.927702" rpy="0.95322233 -1.18448842 -0.66867714" />
+  </joint>
+  <link name="branch_00025">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.476538" radius="0.003396" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.476538" radius="0.003396" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00025_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00025" />
+    <origin xyz="-0.379924 -0.107647 2.828954" rpy="-2.31724561 -1.36047560 2.15069809" />
+  </joint>
+  <link name="branch_00026">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.083730" radius="0.002800" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.083730" radius="0.002800" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00026_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00026" />
+    <origin xyz="-0.253189 -0.060726 2.843528" rpy="1.86619697 -1.33059528 -1.62801335" />
+  </joint>
+  <link name="branch_00027">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091488" radius="0.002635" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091488" radius="0.002635" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00027_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00027" />
+    <origin xyz="-0.237679 0.015789 2.847795" rpy="-1.52111884 -0.38973955 0.37128546" />
+  </joint>
+  <link name="branch_00028">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.103030" radius="0.001939" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.103030" radius="0.001939" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00028_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00028" />
+    <origin xyz="-0.399703 0.020757 2.796009" rpy="-2.21631795 -0.93368896 1.58129682" />
+  </joint>
+  <link name="branch_00029">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054108" radius="0.001707" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054108" radius="0.001707" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00029_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00029" />
+    <origin xyz="-0.428656 -0.012133 2.761708" rpy="0.00917323 -0.08252303 -0.00037872" />
+  </joint>
+  <link name="branch_00030">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047103" radius="0.001419" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047103" radius="0.001419" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00030_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00030" />
+    <origin xyz="-0.493000 -0.006183 2.790495" rpy="1.25356285 -0.89377638 -0.66809156" />
+  </joint>
+  <link name="branch_00031">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.074655" radius="0.001419" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.074655" radius="0.001419" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00031_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00031" />
+    <origin xyz="-0.505252 0.006142 2.767356" rpy="3.08655031 -0.99335444 -3.04009930" />
+  </joint>
+  <link name="branch_00032">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.429052" radius="0.002923" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.429052" radius="0.002923" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00032_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00032" />
+    <origin xyz="-0.113746 -0.183303 3.107013" rpy="1.38332247 -0.70019452 -0.58728382" />
+  </joint>
+  <link name="branch_00033">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.318754" radius="0.002801" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.318754" radius="0.002801" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00033_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00033" />
+    <origin xyz="-0.170529 0.025544 3.088775" rpy="-1.29621135 -1.31475155 1.05789535" />
+  </joint>
+  <link name="branch_00034">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.413192" radius="0.002577" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.413192" radius="0.002577" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00034_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00034" />
+    <origin xyz="-0.036571 0.259816 3.112957" rpy="-1.54355946 -0.34684349 0.33770143" />
+  </joint>
+  <link name="branch_00035">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.170515" radius="0.002201" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.170515" radius="0.002201" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00035_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00035" />
+    <origin xyz="-0.074105 0.179858 3.113202" rpy="-1.49726913 -0.54208686 0.50529863" />
+  </joint>
+  <link name="branch_00036">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.078850" radius="0.002061" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.078850" radius="0.002061" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00036_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00036" />
+    <origin xyz="-0.104136 0.120586 3.091906" rpy="-1.15447359 -1.38089221 0.98711915" />
+  </joint>
+  <link name="branch_00037">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.141567" radius="0.001456" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.141567" radius="0.001456" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00037_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00037" />
+    <origin xyz="-0.222496 0.210368 3.090317" rpy="-1.62573748 -1.15395801 1.20476176" />
+  </joint>
+  <link name="branch_00038">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.071321" radius="0.000426" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.071321" radius="0.000426" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00038_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00038" />
+    <origin xyz="-0.412663 0.203376 3.113936" rpy="-1.17137592 -1.10202128 0.77410420" />
+  </joint>
+  <link name="branch_00039">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.530751" radius="0.005872" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.530751" radius="0.005872" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00039_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00039" />
+    <origin xyz="-0.178362 -0.196351 3.205552" rpy="1.42059643 -0.91988648 -0.80551696" />
+  </joint>
+  <link name="branch_00040">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.442295" radius="0.003317" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.442295" radius="0.003317" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00040_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00040" />
+    <origin xyz="0.204158 -0.233817 3.218405" rpy="-1.66811890 -0.74626652 0.81481647" />
+  </joint>
+  <link name="branch_00041">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.446502" radius="0.003036" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.446502" radius="0.003036" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00041_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00041" />
+    <origin xyz="0.284808 -0.223697 3.212176" rpy="-1.65055489 -0.68608106 0.73823434" />
+  </joint>
+  <link name="branch_00042">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.130727" radius="0.002553" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.130727" radius="0.002553" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00042_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00042" />
+    <origin xyz="0.215488 -0.073948 3.234399" rpy="1.24475610 -1.30022532 -0.99888397" />
+  </joint>
+  <link name="branch_00043">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.156333" radius="0.001499" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.156333" radius="0.001499" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00043_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00043" />
+    <origin xyz="0.376331 0.004816 3.271083" rpy="-1.72746003 -1.20292275 1.35337507" />
+  </joint>
+  <link name="branch_00044">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022873" radius="0.000382" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022873" radius="0.000382" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00044_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00044" />
+    <origin xyz="0.505251 0.153307 3.251383" rpy="1.35606037 -0.75531705 -0.61850915" />
+  </joint>
+  <link name="branch_00045">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.332387" radius="0.004796" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.332387" radius="0.004796" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00045_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00045" />
+    <origin xyz="-0.126718 0.075126 3.403717" rpy="-1.29095021 -0.75302309 0.57878500" />
+  </joint>
+  <link name="branch_00046">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.255720" radius="0.002543" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.255720" radius="0.002543" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00046_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00046" />
+    <origin xyz="-0.107277 -0.171822 3.382597" rpy="1.67172277 -0.36598448 -0.40391826" />
+  </joint>
+  <link name="branch_00047">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.341639" radius="0.002339" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.341639" radius="0.002339" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00047_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00047" />
+    <origin xyz="-0.223069 0.053435 3.428018" rpy="-1.46769387 -0.72910938 0.66293256" />
+  </joint>
+  <link name="branch_00048">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.289679" radius="0.001719" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.289679" radius="0.001719" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00048_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00048" />
+    <origin xyz="-0.317923 -0.143617 3.406073" rpy="1.62939750 -1.40296001 -1.46102233" />
+  </joint>
+  <link name="branch_00049">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.205556" radius="0.001481" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.205556" radius="0.001481" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00049_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00049" />
+    <origin xyz="-0.186438 -0.260488 3.502231" rpy="1.13955345 -0.46776530 -0.30292408" />
+  </joint>
+  <link name="branch_00050">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.119588" radius="0.001087" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.119588" radius="0.001087" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00050_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00050" />
+    <origin xyz="-0.296940 -0.207502 3.399368" rpy="1.44159505 -1.00667825 -0.90109669" />
+  </joint>
+  <link name="branch_00051">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.076123" radius="0.000730" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.076123" radius="0.000730" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00051_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00051" />
+    <origin xyz="-0.293754 -0.256067 3.375291" rpy="2.38351841 -0.95418392 -1.82858416" />
+  </joint>
+  <link name="branch_00052">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.171659" radius="0.001843" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.171659" radius="0.001843" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00052_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00052" />
+    <origin xyz="-0.031565 0.110269 3.572045" rpy="2.36344490 -0.49013266 -1.09551483" />
+  </joint>
+  <link name="branch_00053">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.195700" radius="0.001843" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.195700" radius="0.001843" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00053_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00053" />
+    <origin xyz="-0.038548 0.164225 3.481363" rpy="1.44643662 -0.02626598 -0.02318732" />
+  </joint>
+  <link name="branch_00054">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.280005" radius="0.001674" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.280005" radius="0.001674" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00054_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00054" />
+    <origin xyz="-0.137254 0.207009 3.547859" rpy="-1.22451809 -0.81106379 0.58568728" />
+  </joint>
+  <link name="branch_00055">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.049388" radius="0.000791" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.049388" radius="0.000791" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00055_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00055" />
+    <origin xyz="-0.148482 0.247445 3.479250" rpy="1.65758214 -0.89232584 -0.96179997" />
+  </joint>
+  <link name="branch_00056">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.048084" radius="0.000791" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.048084" radius="0.000791" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00056_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00056" />
+    <origin xyz="-0.188704 0.234935 3.481598" rpy="-0.74553264 -1.33966292 0.60066936" />
+  </joint>
+  <link name="branch_00057">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054134" radius="0.000791" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054134" radius="0.000791" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00057_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00057" />
+    <origin xyz="-0.184955 0.246665 3.485324" rpy="-1.11359249 -0.81259875 0.52336056" />
+  </joint>
+  <link name="branch_00058">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054473" radius="0.000593" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054473" radius="0.000593" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00058_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00058" />
+    <origin xyz="-0.146438 0.296138 3.495214" rpy="1.85220460 -0.43145996 -0.56721065" />
+  </joint>
+  <link name="branch_00059">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.039404" radius="0.000422" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.039404" radius="0.000422" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00059_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00059" />
+    <origin xyz="-0.169357 0.320280 3.508617" rpy="1.88871476 -0.23486092 -0.32319640" />
+  </joint>
+  <link name="branch_00060">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.028762" radius="0.000285" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.028762" radius="0.000285" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00060_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00060" />
+    <origin xyz="-0.215981 0.318526 3.516682" rpy="-0.48087479 -1.31389651 0.37376621" />
+  </joint>
+  <link name="branch_00061">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.295730" radius="0.002215" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.295730" radius="0.002215" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00061_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00061" />
+    <origin xyz="0.182359 -0.168461 3.560844" rpy="-2.13921552 -0.97449757 1.53741851" />
+  </joint>
+  <link name="branch_00062">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.167056" radius="0.001983" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.167056" radius="0.001983" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00062_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00062" />
+    <origin xyz="0.102756 -0.155996 3.613367" rpy="-2.42166959 -0.84221305 1.74395208" />
+  </joint>
+  <link name="branch_00063">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.141991" radius="0.001463" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.141991" radius="0.001463" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00063_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00063" />
+    <origin xyz="-0.005351 -0.276742 3.563829" rpy="-1.54809761 -0.32831799 0.32107628" />
+  </joint>
+  <link name="branch_00064">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.133258" radius="0.001257" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.133258" radius="0.001257" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00064_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00064" />
+    <origin xyz="-0.107685 -0.214988 3.580310" rpy="-0.22952854 -1.04857907 0.13311873" />
+  </joint>
+  <link name="branch_00065">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.051002" radius="0.001072" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.051002" radius="0.001072" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00065_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00065" />
+    <origin xyz="-0.087723 -0.247050 3.539091" rpy="-2.40054991 -0.53393685 1.22687662" />
+  </joint>
+  <link name="branch_00066">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.176609" radius="0.001072" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.176609" radius="0.001072" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00066_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00066" />
+    <origin xyz="-0.087364 -0.343865 3.534236" rpy="1.67509019 -0.15876650 -0.17616671" />
+  </joint>
+  <link name="branch_00067">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.266320" radius="0.001755" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.266320" radius="0.001755" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00067_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00067" />
+    <origin xyz="-0.250597 -0.179375 3.598256" rpy="1.29955590 -1.05043067 -0.82958555" />
+  </joint>
+  <link name="branch_00068">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.076584" radius="0.001619" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.076584" radius="0.001619" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00068_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00068" />
+    <origin xyz="-0.176773 -0.039197 3.584788" rpy="-0.93884938 -0.22022178 0.11204211" />
+  </joint>
+  <link name="branch_00069">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.080234" radius="0.001485" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.080234" radius="0.001485" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00069_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00069" />
+    <origin xyz="-0.210536 -0.033679 3.588535" rpy="-0.82027894 -0.38580418 0.16945200" />
+  </joint>
+  <link name="branch_00070">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.069598" radius="0.001214" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.069598" radius="0.001214" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00070_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00070" />
+    <origin xyz="-0.252137 -0.104916 3.583867" rpy="1.40309360 -0.18211309 -0.15399555" />
+  </joint>
+  <link name="branch_00071">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052518" radius="0.000458" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052518" radius="0.000458" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00071_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00071" />
+    <origin xyz="-0.360544 -0.140420 3.629238" rpy="2.82321613 -0.08289946 -0.50559999" />
+  </joint>
+  <link name="branch_00072">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.057708" radius="0.000458" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.057708" radius="0.000458" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00072_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00072" />
+    <origin xyz="-0.361653 -0.157300 3.658999" rpy="1.36385731 -0.17536071 -0.14249206" />
+  </joint>
+  <link name="branch_00073">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.186372" radius="0.002095" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.186372" radius="0.002095" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00073_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00073" />
+    <origin xyz="-0.013982 0.045903 3.864367" rpy="-1.19148743 -0.37098623 0.25305950" />
+  </joint>
+  <link name="branch_00074">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.305667" radius="0.001586" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.305667" radius="0.001586" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00074_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00074" />
+    <origin xyz="-0.178094 0.118082 3.893965" rpy="-1.27748934 -0.69216102 0.52327260" />
+  </joint>
+  <link name="branch_00075">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.103551" radius="0.001299" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.103551" radius="0.001299" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00075_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00075" />
+    <origin xyz="-0.107427 -0.099506 3.850774" rpy="1.48069405 -0.05118799 -0.04677349" />
+  </joint>
+  <link name="branch_00076">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.066001" radius="0.000986" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.066001" radius="0.000986" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00076_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00076" />
+    <origin xyz="-0.201554 -0.060790 3.881311" rpy="-0.06170955 -1.11843187 0.03862886" />
+  </joint>
+  <link name="branch_00077">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.186205" radius="0.001957" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.186205" radius="0.001957" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00077_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00077" />
+    <origin xyz="0.075834 -0.221997 3.873922" rpy="1.62154258 0.06709099 0.07058218" />
+  </joint>
+  <link name="branch_00078">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.130540" radius="0.001780" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.130540" radius="0.001780" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00078_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00078" />
+    <origin xyz="-0.031336 -0.154102 3.895187" rpy="0.57639936 -1.51898565 -0.54875808" />
+  </joint>
+  <link name="branch_00079">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.162909" radius="0.001443" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.162909" radius="0.001443" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00079_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00079" />
+    <origin xyz="-0.089060 -0.207175 3.927781" rpy="0.71988038 -0.89352373 -0.35674703" />
+  </joint>
+  <link name="branch_00080">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.066682" radius="0.001143" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.066682" radius="0.001143" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00080_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00080" />
+    <origin xyz="-0.001840 -0.264809 3.933007" rpy="-1.97988986 -0.11209523 0.17054089" />
+  </joint>
+  <link name="branch_00081">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.125078" radius="0.001922" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.125078" radius="0.001922" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00081_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00081" />
+    <origin xyz="0.160014 -0.113931 3.979479" rpy="2.87877247 -1.35033284 -2.81440177" />
+  </joint>
+  <link name="branch_00082">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.221511" radius="0.001433" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.221511" radius="0.001433" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00082_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00082" />
+    <origin xyz="0.200098 -0.188867 4.024889" rpy="-1.56661698 -1.18659564 1.18272401" />
+  </joint>
+  <link name="branch_00083">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029154" radius="0.000589" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029154" radius="0.000589" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00083_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00083" />
+    <origin xyz="0.113052 -0.285663 4.045545" rpy="1.68950994 -0.86448588 -0.95846298" />
+  </joint>
+  <link name="branch_00084">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036814" radius="0.000466" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036814" radius="0.000466" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00084_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00084" />
+    <origin xyz="0.083025 -0.351729 4.050192" rpy="1.66909968 -0.83146493 -0.90661845" />
+  </joint>
+  <link name="branch_00085">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.229778" radius="0.002563" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.229778" radius="0.002563" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00085_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00085" />
+    <origin xyz="0.166263 0.019115 4.033910" rpy="2.22120288 -1.03896405 -1.71327712" />
+  </joint>
+  <link name="branch_00086">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.053600" radius="0.000939" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.053600" radius="0.000939" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00086_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00086" />
+    <origin xyz="0.204791 0.143157 4.045664" rpy="1.30232610 -0.79598319 -0.62010124" />
+  </joint>
+  <link name="branch_00087">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022179" radius="0.000442" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022179" radius="0.000442" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00087_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00087" />
+    <origin xyz="0.280743 0.115743 4.062010" rpy="-1.54139573 -0.07154165 0.06947030" />
+  </joint>
+  <link name="branch_00088">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.030334" radius="0.000182" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.030334" radius="0.000182" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00088_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00088" />
+    <origin xyz="0.357754 0.138008 4.051606" rpy="-1.25944785 -1.11615978 0.85385302" />
+  </joint>
+  <link name="branch_00089">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.242745" radius="0.002460" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.242745" radius="0.002460" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00089_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00089" />
+    <origin xyz="-0.099345 -0.107358 4.045505" rpy="1.44243908 -0.99025091 -0.88652815" />
+  </joint>
+  <link name="branch_00090">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.039973" radius="0.001140" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.039973" radius="0.001140" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00090_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00090" />
+    <origin xyz="-0.096538 0.037414 4.089790" rpy="-1.73193345 -0.53743332 0.62620673" />
+  </joint>
+  <link name="branch_00091">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.074628" radius="0.000770" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.074628" radius="0.000770" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00091_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00091" />
+    <origin xyz="-0.178598 0.022242 4.074680" rpy="-1.70655334 -1.37815929 1.51316456" />
+  </joint>
+  <link name="branch_00092">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.220056" radius="0.001249" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.220056" radius="0.001249" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00092_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00092" />
+    <origin xyz="0.110460 -0.214295 4.102419" rpy="-1.47825854 -0.63343544 0.58060592" />
+  </joint>
+  <link name="branch_00093">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.153698" radius="0.001119" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.153698" radius="0.001119" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00093_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00093" />
+    <origin xyz="-0.033115 -0.179778 4.146026" rpy="1.61521145 -0.69111843 -0.71992430" />
+  </joint>
+  <link name="branch_00094">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.032329" radius="0.000678" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.032329" radius="0.000678" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00094_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00094" />
+    <origin xyz="-0.026528 -0.207347 4.160138" rpy="2.83043729 -1.19314959 -2.68764510" />
+  </joint>
+  <link name="branch_00095">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.027979" radius="0.000424" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.027979" radius="0.000424" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00095_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00095" />
+    <origin xyz="0.011125 -0.279299 4.188946" rpy="-2.60901929 -0.99012554 2.20598744" />
+  </joint>
+  <link name="branch_00096">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.068211" radius="0.001852" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.068211" radius="0.001852" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00096_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00096" />
+    <origin xyz="-0.020561 -0.075918 4.187721" rpy="2.15382469 -1.33066075 -1.93889019" />
+  </joint>
+  <link name="branch_00097">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.099807" radius="0.000740" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.099807" radius="0.000740" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00097_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00097" />
+    <origin xyz="-0.144261 0.038185 4.183327" rpy="-2.48409308 -1.16235867 2.18359978" />
+  </joint>
+  <link name="branch_00098">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.193477" radius="0.001375" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.193477" radius="0.001375" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00098_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00098" />
+    <origin xyz="-0.094348 -0.045806 4.222744" rpy="2.68199443 -1.40660119 -2.60322427" />
+  </joint>
+  <link name="branch_00099">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.076130" radius="0.001119" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.076130" radius="0.001119" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00099_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00099" />
+    <origin xyz="-0.039786 0.006925 4.270565" rpy="-1.20259780 -1.14039260 0.82888559" />
+  </joint>
+  <link name="branch_00100">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.095822" radius="0.000864" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.095822" radius="0.000864" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00100_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00100" />
+    <origin xyz="0.028527 0.032981 4.339554" rpy="-2.51885528 -0.76774495 1.79601372" />
+  </joint>
+  <link name="branch_00101">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.058473" radius="0.000864" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.058473" radius="0.000864" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00101_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00101" />
+    <origin xyz="0.011868 0.061545 4.313676" rpy="1.94240508 -0.73609907 -1.02728734" />
+  </joint>
+  <link name="branch_00102">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.057485" radius="0.000499" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.057485" radius="0.000499" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00102_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00102" />
+    <origin xyz="-0.041758 0.090654 4.258082" rpy="-2.35189498 -0.04176626 0.10015350" />
+  </joint>
+  <link name="branch_00103">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.048303" radius="0.000326" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.048303" radius="0.000326" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00103_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00103" />
+    <origin xyz="-0.116670 0.088114 4.274268" rpy="-0.22737834 -0.93076146 0.11455126" />
+  </joint>
+  <link name="branch_00104">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.063247" radius="0.000326" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.063247" radius="0.000326" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00104_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00104" />
+    <origin xyz="-0.111437 0.110141 4.272061" rpy="-1.15038688 -0.42374586 0.27712174" />
+  </joint>
+  <link name="branch_00105">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047733" radius="0.000379" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047733" radius="0.000379" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00105_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00105" />
+    <origin xyz="0.158839 -0.007844 4.297926" rpy="0.77337671 -0.54439229 -0.22634110" />
+  </joint>
+  <link name="branch_00106">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.109729" radius="0.001207" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.109729" radius="0.001207" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00106_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00106" />
+    <origin xyz="0.058340 -0.123786 4.465412" rpy="-2.76049276 -0.74051413 2.21920567" />
+  </joint>
+  <link name="branch_00107">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.163343" radius="0.001030" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.163343" radius="0.001030" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00107_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00107" />
+    <origin xyz="-0.022260 -0.159786 4.456206" rpy="1.47990840 -0.80284087 -0.73944189" />
+  </joint>
+  <link name="branch_00108">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.032172" radius="0.000572" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.032172" radius="0.000572" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00108_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00108" />
+    <origin xyz="0.065048 -0.076276 4.551132" rpy="1.31144781 -0.37296340 -0.28827144" />
+  </joint>
+  <link name="branch_00109">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036315" radius="0.000310" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036315" radius="0.000310" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00109_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00109" />
+    <origin xyz="0.031005 -0.150064 4.608910" rpy="-2.59832338 -0.31380228 1.03313063" />
+  </joint>
+  <link name="branch_00110">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033793" radius="0.000364" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033793" radius="0.000364" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00110_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00110" />
+    <origin xyz="0.113081 -0.184169 4.316798" rpy="-1.04236677 -1.11177543 0.68521362" />
+  </joint>
+  <link name="branch_00111">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.035128" radius="0.000203" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.035128" radius="0.000203" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00111_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00111" />
+    <origin xyz="0.117261 -0.225053 4.301490" rpy="-2.03246780 -0.64325339 0.98706273" />
+  </joint>
+  <link name="branch_00112">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.082196" radius="0.003046" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.082196" radius="0.003046" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00112_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00112" />
+    <origin xyz="-0.028261 0.057632 2.870256" rpy="1.59489920 -0.81325460 -0.83091262" />
+  </joint>
+  <link name="branch_00113">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.128608" radius="0.001522" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.128608" radius="0.001522" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00113_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00113" />
+    <origin xyz="-0.138377 0.143832 2.895578" rpy="-2.27598621 -1.30875672 2.05742809" />
+  </joint>
+  <link name="branch_00114">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.046130" radius="0.001167" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.046130" radius="0.001167" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00114_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00114" />
+    <origin xyz="-0.035060 0.184432 2.893393" rpy="1.30573767 -0.79576155 -0.62197865" />
+  </joint>
+  <link name="branch_00115">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.113970" radius="0.000840" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.113970" radius="0.000840" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00115_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00115" />
+    <origin xyz="-0.099434 0.263658 2.852313" rpy="-1.96767573 -0.00548836 0.00825117" />
+  </joint>
+  <link name="branch_00116">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.170816" radius="0.002854" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.170816" radius="0.002854" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00116_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00116" />
+    <origin xyz="-0.110590 0.015284 2.919300" rpy="-0.80167935 -0.95047258 0.42941081" />
+  </joint>
+  <link name="branch_00117">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.310301" radius="0.002854" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.310301" radius="0.002854" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00117_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00117" />
+    <origin xyz="-0.199757 -0.017610 2.927597" rpy="-0.52128256 -1.36470715 0.42683325" />
+  </joint>
+  <link name="branch_00118">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.057358" radius="0.001346" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.057358" radius="0.001346" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00118_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00118" />
+    <origin xyz="-0.142728 -0.101109 2.929130" rpy="0.65285432 -0.73937827 -0.26088076" />
+  </joint>
+  <link name="branch_00119">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.129702" radius="0.001149" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.129702" radius="0.001149" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00119_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00119" />
+    <origin xyz="-0.231714 -0.089990 2.927351" rpy="-2.05776912 -1.17490327 1.67141281" />
+  </joint>
+  <link name="branch_00120">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.100700" radius="0.000778" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.100700" radius="0.000778" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00120_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00120" />
+    <origin xyz="-0.270431 -0.119240 2.920767" rpy="-2.41964636 -0.94505348 1.86931347" />
+  </joint>
+  <link name="branch_00121">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.042758" radius="0.000408" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.042758" radius="0.000408" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00121_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00121" />
+    <origin xyz="-0.295713 -0.159155 2.951910" rpy="0.61426891 -1.43996324 -0.54262194" />
+  </joint>
+  <link name="branch_00122">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.043912" radius="0.000322" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.043912" radius="0.000322" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00122_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00122" />
+    <origin xyz="-0.291811 -0.107869 2.950961" rpy="-1.66367451 -0.54369535 0.59375696" />
+  </joint>
+  <link name="branch_00123">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.199291" radius="0.001981" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.199291" radius="0.001981" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00123_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00123" />
+    <origin xyz="-0.361151 -0.236276 2.853807" rpy="1.12280915 -1.00112036 -0.66269570" />
+  </joint>
+  <link name="branch_00124">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.213971" radius="0.001646" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.213971" radius="0.001646" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00124_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00124" />
+    <origin xyz="-0.443368 -0.160338 2.827520" rpy="-2.99419109 -1.19941671 2.92644407" />
+  </joint>
+  <link name="branch_00125">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.128701" radius="0.001646" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.128701" radius="0.001646" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00125_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00125" />
+    <origin xyz="-0.375049 -0.098731 2.890318" rpy="-0.80109905 -0.52979993 0.22873558" />
+  </joint>
+  <link name="branch_00126">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.083876" radius="0.001008" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.083876" radius="0.001008" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00126_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00126" />
+    <origin xyz="-0.464594 -0.076684 2.765477" rpy="3.13526140 -0.70654709 -3.12442319" />
+  </joint>
+  <link name="branch_00127">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.071311" radius="0.000346" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.071311" radius="0.000346" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00127_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00127" />
+    <origin xyz="-0.300535 -0.081681 2.872177" rpy="0.33518358 -0.40801147 -0.06997208" />
+  </joint>
+  <link name="branch_00128">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.038508" radius="0.000229" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.038508" radius="0.000229" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00128_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00128" />
+    <origin xyz="-0.221388 0.025635 2.854185" rpy="1.63515956 -0.40541903 -0.43158555" />
+  </joint>
+  <link name="branch_00129">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.207931" radius="0.002518" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.207931" radius="0.002518" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00129_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00129" />
+    <origin xyz="-0.000650 -0.142937 3.093323" rpy="-1.77776861 -0.31831122 0.39040089" />
+  </joint>
+  <link name="branch_00130">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.165990" radius="0.002017" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.165990" radius="0.002017" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00130_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00130" />
+    <origin xyz="-0.133039 -0.110435 3.089121" rpy="1.42340050 -1.18912734 -1.05595415" />
+  </joint>
+  <link name="branch_00131">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.219531" radius="0.001255" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.219531" radius="0.001255" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00131_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00131" />
+    <origin xyz="-0.037591 -0.308594 3.092580" rpy="-1.40297310 -0.14230835 0.12028483" />
+  </joint>
+  <link name="branch_00132">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.099255" radius="0.001056" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.099255" radius="0.001056" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00132_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00132" />
+    <origin xyz="-0.173195 -0.220036 3.117914" rpy="-2.20584223 -1.22560127 1.89529593" />
+  </joint>
+  <link name="branch_00133">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.082801" radius="0.000766" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.082801" radius="0.000766" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00133_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00133" />
+    <origin xyz="-0.198831 -0.265531 3.127967" rpy="2.08371178 -1.06406271 -1.57787881" />
+  </joint>
+  <link name="branch_00134">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.055101" radius="0.000859" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.055101" radius="0.000859" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00134_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00134" />
+    <origin xyz="-0.201977 -0.011558 3.087149" rpy="1.58891470 -0.80581124 -0.81896439" />
+  </joint>
+  <link name="branch_00135">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.079068" radius="0.000526" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.079068" radius="0.000526" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00135_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00135" />
+    <origin xyz="-0.258378 0.020604 3.093262" rpy="1.37395389 -1.35395460 -1.16566870" />
+  </joint>
+  <link name="branch_00136">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018635" radius="0.000250" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018635" radius="0.000250" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00136_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00136" />
+    <origin xyz="-0.297384 0.083188 3.099120" rpy="1.49481871 -0.42826687 -0.39775593" />
+  </joint>
+  <link name="branch_00137">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.016085" radius="0.000250" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.016085" radius="0.000250" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00137_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00137" />
+    <origin xyz="-0.307163 0.070289 3.099989" rpy="1.51275267 -0.94947362 -0.90305738" />
+  </joint>
+  <link name="branch_00138">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.226970" radius="0.002107" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.226970" radius="0.002107" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00138_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00138" />
+    <origin xyz="0.104184 0.175368 3.074003" rpy="1.13784226 -0.66021145 -0.43138759" />
+  </joint>
+  <link name="branch_00139">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.200405" radius="0.001686" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.200405" radius="0.001686" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00139_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00139" />
+    <origin xyz="0.064384 0.280554 3.123395" rpy="1.48507921 -0.06894128 -0.06327532" />
+  </joint>
+  <link name="branch_00140">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.061221" radius="0.001291" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.061221" radius="0.001291" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00140_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00140" />
+    <origin xyz="0.008026 0.258419 3.124825" rpy="1.73478893 -1.25473868 -1.41471167" />
+  </joint>
+  <link name="branch_00141">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.051592" radius="0.000877" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.051592" radius="0.000877" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00141_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00141" />
+    <origin xyz="-0.033003 0.330329 3.117427" rpy="1.47690235 -0.95486929 -0.88023443" />
+  </joint>
+  <link name="branch_00142">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.105263" radius="0.000727" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.105263" radius="0.000727" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00142_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00142" />
+    <origin xyz="-0.132336 0.334909 3.114198" rpy="-1.71766164 -1.05177469 1.18417287" />
+  </joint>
+  <link name="branch_00143">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091187" radius="0.000445" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091187" radius="0.000445" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00143_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00143" />
+    <origin xyz="-0.053027 0.424961 3.110276" rpy="1.56013983 -0.03688800 -0.03649707" />
+  </joint>
+  <link name="branch_00144">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.035387" radius="0.000620" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.035387" radius="0.000620" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00144_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00144" />
+    <origin xyz="-0.049944 0.200854 3.120623" rpy="1.59413654 -0.25078911 -0.25664790" />
+  </joint>
+  <link name="branch_00145">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029644" radius="0.000343" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029644" radius="0.000343" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00145_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00145" />
+    <origin xyz="-0.117468 0.209576 3.114914" rpy="-2.58203502 -1.47339644 2.52807694" />
+  </joint>
+  <link name="branch_00146">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045444" radius="0.000224" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045444" radius="0.000224" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00146_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00146" />
+    <origin xyz="-0.418027 0.214933 3.115212" rpy="-1.37034318 -0.75652185 0.62805410" />
+  </joint>
+  <link name="branch_00147">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.272389" radius="0.001853" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.272389" radius="0.001853" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00147_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00147" />
+    <origin xyz="-0.301895 -0.174037 3.211321" rpy="1.83670839 -0.92711224 -1.15870708" />
+  </joint>
+  <link name="branch_00148">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.179605" radius="0.001645" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.179605" radius="0.001645" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00148_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00148" />
+    <origin xyz="-0.186077 -0.261598 3.239430" rpy="1.47518951 -0.11549459 -0.10496894" />
+  </joint>
+  <link name="branch_00149">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.044669" radius="0.000786" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.044669" radius="0.000786" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00149_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00149" />
+    <origin xyz="-0.300831 -0.280560 3.221913" rpy="2.74453649 -1.17979165 -2.55770160" />
+  </joint>
+  <link name="branch_00150">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029173" radius="0.000565" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029173" radius="0.000565" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00150_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00150" />
+    <origin xyz="-0.308104 -0.331228 3.218834" rpy="-1.57259956 -0.01514924 0.01517658" />
+  </joint>
+  <link name="branch_00151">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.126107" radius="0.001962" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.126107" radius="0.001962" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00151_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00151" />
+    <origin xyz="0.127419 -0.205156 3.220829" rpy="-1.55274511 -0.21904174 0.21515347" />
+  </joint>
+  <link name="branch_00152">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054759" radius="0.001524" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054759" radius="0.001524" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00152_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00152" />
+    <origin xyz="0.171052 -0.193622 3.215092" rpy="-1.92765270 -1.12548801 1.47482469" />
+  </joint>
+  <link name="branch_00153">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034962" radius="0.000985" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034962" radius="0.000985" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00153_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00153" />
+    <origin xyz="0.217677 -0.289368 3.230573" rpy="1.58466060 -0.48455926 -0.49105743" />
+  </joint>
+  <link name="branch_00154">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.182471" radius="0.002358" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.182471" radius="0.002358" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00154_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00154" />
+    <origin xyz="0.294084 -0.106452 3.196035" rpy="0.67037724 -1.11319095 -0.42687438" />
+  </joint>
+  <link name="branch_00155">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.221202" radius="0.001712" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.221202" radius="0.001712" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00155_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00155" />
+    <origin xyz="0.374301 -0.202472 3.201879" rpy="-0.97200790 -1.14771060 0.65813347" />
+  </joint>
+  <link name="branch_00156">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034818" radius="0.001606" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034818" radius="0.001606" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00156_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00156" />
+    <origin xyz="0.279032 -0.228141 3.229363" rpy="1.27391293 -0.00096688 -0.00071532" />
+  </joint>
+  <link name="branch_00157">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.035367" radius="0.000269" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.035367" radius="0.000269" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00157_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00157" />
+    <origin xyz="0.398301 -0.424962 3.211093" rpy="-0.90079383 -1.36645054 0.74997144" />
+  </joint>
+  <link name="branch_00158">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.024934" radius="0.001441" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.024934" radius="0.001441" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00158_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00158" />
+    <origin xyz="0.184790 -0.094712 3.245006" rpy="1.66907410 -0.18646636 -0.20562587" />
+  </joint>
+  <link name="branch_00159">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.127815" radius="0.000626" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.127815" radius="0.000626" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00159_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00159" />
+    <origin xyz="0.425189 0.032912 3.270063" rpy="1.45484322 -1.17030564 -1.06586858" />
+  </joint>
+  <link name="branch_00160">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.191045" radius="0.001279" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.191045" radius="0.001279" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00160_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00160" />
+    <origin xyz="-0.142887 0.058908 3.435536" rpy="-0.85114317 -0.45715273 0.21012382" />
+  </joint>
+  <link name="branch_00161">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.062075" radius="0.001150" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.062075" radius="0.001150" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00161_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00161" />
+    <origin xyz="-0.070477 0.064650 3.380047" rpy="1.44825557 -0.11117421 -0.09834426" />
+  </joint>
+  <link name="branch_00162">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091073" radius="0.000972" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091073" radius="0.000972" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00162_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00162" />
+    <origin xyz="-0.122024 0.074449 3.435021" rpy="-0.23383168 -0.15434874 0.01816407" />
+  </joint>
+  <link name="branch_00163">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.048432" radius="0.000820" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.048432" radius="0.000820" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00163_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00163" />
+    <origin xyz="-0.125576 0.104440 3.393624" rpy="-1.58392401 -0.14758857 0.14953168" />
+  </joint>
+  <link name="branch_00164">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036935" radius="0.000662" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036935" radius="0.000662" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00164_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00164" />
+    <origin xyz="-0.180812 0.108459 3.410617" rpy="0.88286172 -1.08283858 -0.55372549" />
+  </joint>
+  <link name="branch_00165">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.017980" radius="0.000457" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.017980" radius="0.000457" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00165_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00165" />
+    <origin xyz="-0.187281 0.152627 3.410463" rpy="1.45249164 -0.21336034 -0.18965390" />
+  </joint>
+  <link name="branch_00166">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091242" radius="0.001003" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091242" radius="0.001003" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00166_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00166" />
+    <origin xyz="-0.120111 -0.138002 3.414339" rpy="1.43590609 -0.73485838 -0.64865567" />
+  </joint>
+  <link name="branch_00167">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033703" radius="0.000880" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033703" radius="0.000880" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00167_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00167" />
+    <origin xyz="-0.120883 -0.120729 3.372990" rpy="-0.38765539 -1.15659325 0.25486541" />
+  </joint>
+  <link name="branch_00168">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033357" radius="0.000880" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033357" radius="0.000880" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00168_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00168" />
+    <origin xyz="-0.119555 -0.129567 3.372204" rpy="0.88729328 -1.02702722 -0.52374574" />
+  </joint>
+  <link name="branch_00169">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.030960" radius="0.000340" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.030960" radius="0.000340" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00169_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00169" />
+    <origin xyz="-0.104198 -0.254616 3.375831" rpy="-0.74746679 -1.01133682 0.42763338" />
+  </joint>
+  <link name="branch_00170">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036841" radius="0.000199" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036841" radius="0.000199" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00170_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00170" />
+    <origin xyz="-0.146858 -0.261463 3.385400" rpy="1.50140611 -0.92645285 -0.87210034" />
+  </joint>
+  <link name="branch_00171">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.194702" radius="0.001328" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.194702" radius="0.001328" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00171_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00171" />
+    <origin xyz="-0.266682 -0.055135 3.420478" rpy="1.77155457 -1.47732650 -1.67909831" />
+  </joint>
+  <link name="branch_00172">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.185398" radius="0.001237" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.185398" radius="0.001237" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00172_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00172" />
+    <origin xyz="-0.274272 0.016256 3.416272" rpy="-2.13170869 -1.09602767 1.66982688" />
+  </joint>
+  <link name="branch_00173">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.039395" radius="0.001052" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.039395" radius="0.001052" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00173_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00173" />
+    <origin xyz="-0.192088 0.028325 3.424508" rpy="1.21203100 -0.25094842 -0.17438354" />
+  </joint>
+  <link name="branch_00174">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.060188" radius="0.001127" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.060188" radius="0.001127" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00174_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00174" />
+    <origin xyz="-0.263291 -0.114573 3.407144" rpy="0.72050588 -1.35128466 -0.58641739" />
+  </joint>
+  <link name="branch_00175">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.085763" radius="0.000861" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.085763" radius="0.000861" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00175_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00175" />
+    <origin xyz="-0.318945 -0.173279 3.405809" rpy="1.17479557 -0.84703131 -0.58316491" />
+  </joint>
+  <link name="branch_00176">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.122152" radius="0.000725" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.122152" radius="0.000725" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00176_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00176" />
+    <origin xyz="-0.366554 -0.178167 3.389442" rpy="1.19773257 -0.99029705 -0.70620657" />
+  </joint>
+  <link name="branch_00177">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.085606" radius="0.001270" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.085606" radius="0.001270" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00177_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00177" />
+    <origin xyz="-0.146630 -0.194893 3.490555" rpy="2.83899400 -0.29050948 -1.52943330" />
+  </joint>
+  <link name="branch_00178">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036206" radius="0.000970" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.036206" radius="0.000970" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00178_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00178" />
+    <origin xyz="-0.137397 -0.226714 3.522152" rpy="-1.43742871 -0.69452130 0.61325406" />
+  </joint>
+  <link name="branch_00179">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.053394" radius="0.000506" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.053394" radius="0.000506" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00179_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00179" />
+    <origin xyz="-0.211651 -0.283453 3.520800" rpy="1.57316619 -1.26328764 -1.26554715" />
+  </joint>
+  <link name="branch_00180">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.124227" radius="0.001281" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.124227" radius="0.001281" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00180_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00180" />
+    <origin xyz="-0.110770 0.099968 3.524953" rpy="-1.04983586 -0.70499311 0.41978823" />
+  </joint>
+  <link name="branch_00181">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.078472" radius="0.000681" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.078472" radius="0.000681" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00181_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00181" />
+    <origin xyz="-0.067303 0.118670 3.581109" rpy="-1.23295485 -0.07995679 0.05667276" />
+  </joint>
+  <link name="branch_00182">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.039136" radius="0.000945" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.039136" radius="0.000945" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00182_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00182" />
+    <origin xyz="-0.012525 0.131672 3.471650" rpy="1.40231955 -1.27568327 -1.11830610" />
+  </joint>
+  <link name="branch_00183">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.041579" radius="0.000219" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.041579" radius="0.000219" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00183_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00183" />
+    <origin xyz="-0.068649 0.264055 3.480706" rpy="-1.48469568 -0.80504555 0.74475918" />
+  </joint>
+  <link name="branch_00184">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.092941" radius="0.000868" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.092941" radius="0.000868" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00184_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00184" />
+    <origin xyz="-0.099508 0.219619 3.575545" rpy="2.25576016 -0.38186466 -0.77387412" />
+  </joint>
+  <link name="branch_00185">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.049608" radius="0.000611" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.049608" radius="0.000611" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00185_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00185" />
+    <origin xyz="-0.194164 0.213497 3.572532" rpy="1.01420691 -1.37204466 -0.85371398" />
+  </joint>
+  <link name="branch_00186">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.198864" radius="0.001377" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.198864" radius="0.001377" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00186_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00186" />
+    <origin xyz="0.156717 -0.236835 3.563555" rpy="-1.74979857 -0.76551965 0.89829304" />
+  </joint>
+  <link name="branch_00187">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.097793" radius="0.000574" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.097793" radius="0.000574" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00187_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00187" />
+    <origin xyz="0.248505 -0.215137 3.606111" rpy="-0.61243993 0.16611456 -0.05262850" />
+  </joint>
+  <link name="branch_00188">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.097082" radius="0.000574" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.097082" radius="0.000574" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00188_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00188" />
+    <origin xyz="0.266208 -0.275295 3.570909" rpy="-1.86397395 -0.48773979 0.64654684" />
+  </joint>
+  <link name="branch_00189">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.046649" radius="0.000232" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.046649" radius="0.000232" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00189_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00189" />
+    <origin xyz="0.163564 -0.168075 3.642007" rpy="2.05674334 -1.25157964 -1.75131297" />
+  </joint>
+  <link name="branch_00190">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.056077" radius="0.000318" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.056077" radius="0.000318" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00190_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00190" />
+    <origin xyz="-0.024632 -0.320371 3.554771" rpy="2.07213956 -0.75168058 -1.17540073" />
+  </joint>
+  <link name="branch_00191">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034536" radius="0.000784" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034536" radius="0.000784" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00191_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00191" />
+    <origin xyz="-0.113696 -0.228916 3.550780" rpy="2.08649052 -0.53438844 -0.87844821" />
+  </joint>
+  <link name="branch_00192">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.070555" radius="0.001436" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.070555" radius="0.001436" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00192_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00192" />
+    <origin xyz="-0.151842 -0.147850 3.592947" rpy="1.37490827 -0.17037600 -0.14000004" />
+  </joint>
+  <link name="branch_00193">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.198941" radius="0.001436" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.198941" radius="0.001436" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00193_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00193" />
+    <origin xyz="-0.236866 -0.140128 3.633167" rpy="1.04533221 -1.16667951 -0.72664941" />
+  </joint>
+  <link name="branch_00194">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.032368" radius="0.000843" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.032368" radius="0.000843" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00194_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00194" />
+    <origin xyz="-0.221580 -0.211850 3.598671" rpy="1.37377786 -0.16128297 -0.13236513" />
+  </joint>
+  <link name="branch_00195">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054125" radius="0.000843" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054125" radius="0.000843" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00195_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00195" />
+    <origin xyz="-0.230169 -0.201808 3.619604" rpy="0.10233216 -0.40883492 -0.02123254" />
+  </joint>
+  <link name="branch_00196">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.059321" radius="0.000922" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.059321" radius="0.000922" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00196_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00196" />
+    <origin xyz="-0.119361 0.134764 3.901235" rpy="1.55488483 -1.22001742 -1.20511555" />
+  </joint>
+  <link name="branch_00197">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.046300" radius="0.000221" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.046300" radius="0.000221" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00197_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00197" />
+    <origin xyz="0.059565 -0.287342 3.881627" rpy="0.95420951 -0.67660561 -0.35981301" />
+  </joint>
+  <link name="branch_00198">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018344" radius="0.000921" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018344" radius="0.000921" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00198_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00198" />
+    <origin xyz="-0.075990 -0.200462 3.915111" rpy="1.01989331 -0.01899215 -0.01062232" />
+  </joint>
+  <link name="branch_00199">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.016315" radius="0.000979" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.016315" radius="0.000979" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00199_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00199" />
+    <origin xyz="0.157239 -0.100600 3.974636" rpy="1.28981292 -0.36197460 -0.27357000" />
+  </joint>
+  <link name="branch_00200">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.021425" radius="0.000082" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.021425" radius="0.000082" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00200_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00200" />
+    <origin xyz="0.220350 -0.114705 3.993505" rpy="-2.13575471 -0.79640994 1.30572819" />
+  </joint>
+  <link name="branch_00201">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.111263" radius="0.001156" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.111263" radius="0.001156" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00201_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00201" />
+    <origin xyz="0.137387 -0.135999 4.072318" rpy="2.30767368 -0.67323097 -1.33727779" />
+  </joint>
+  <link name="branch_00202">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047952" radius="0.000801" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047952" radius="0.000801" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00202_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00202" />
+    <origin xyz="0.153827 -0.199525 4.027974" rpy="1.43107984 -0.44723960 -0.39032392" />
+  </joint>
+  <link name="branch_00203">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047167" radius="0.000673" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047167" radius="0.000673" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00203_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00203" />
+    <origin xyz="0.199857 -0.149131 4.012496" rpy="0.52248288 -0.94554789 -0.27179364" />
+  </joint>
+  <link name="branch_00204">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.055565" radius="0.000509" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.055565" radius="0.000509" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00204_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00204" />
+    <origin xyz="0.212084 -0.210394 3.994052" rpy="2.79584526 -0.15695804 -0.84630817" />
+  </joint>
+  <link name="branch_00205">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.063390" radius="0.000369" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.063390" radius="0.000369" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00205_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00205" />
+    <origin xyz="0.260121 -0.183208 4.017343" rpy="2.41273198 -1.44635274 -2.32575304" />
+  </joint>
+  <link name="branch_00206">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054489" radius="0.000369" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054489" radius="0.000369" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00206_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00206" />
+    <origin xyz="0.244592 -0.200601 3.995236" rpy="-0.28845027 -0.55953755 0.08340397" />
+  </joint>
+  <link name="branch_00207">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052292" radius="0.000932" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052292" radius="0.000932" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00207_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00207" />
+    <origin xyz="0.118734 -0.009358 4.002887" rpy="1.35339699 -1.09439513 -0.91020497" />
+  </joint>
+  <link name="branch_00208">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091082" radius="0.000602" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.091082" radius="0.000602" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00208_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00208" />
+    <origin xyz="0.166878 0.062537 4.035810" rpy="1.90913573 -0.70599540 -0.95937087" />
+  </joint>
+  <link name="branch_00209">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033823" radius="0.000490" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033823" radius="0.000490" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00209_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00209" />
+    <origin xyz="0.197734 0.012180 4.047375" rpy="2.52705560 -1.21442121 -2.28473442" />
+  </joint>
+  <link name="branch_00210">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.073822" radius="0.001373" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.073822" radius="0.001373" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00210_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00210" />
+    <origin xyz="-0.063000 -0.029625 4.058141" rpy="-1.26766703 -0.55730207 0.41452096" />
+  </joint>
+  <link name="branch_00211">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052574" radius="0.000906" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052574" radius="0.000906" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00211_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00211" />
+    <origin xyz="-0.082875 -0.066889 4.039035" rpy="-2.31580217 -1.07216794 1.87087202" />
+  </joint>
+  <link name="branch_00212">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.031317" radius="0.000776" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.031317" radius="0.000776" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00212_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00212" />
+    <origin xyz="-0.051441 -0.103448 4.065185" rpy="-1.73057420 -1.24608717 1.40150259" />
+  </joint>
+  <link name="branch_00213">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.055703" radius="0.000687" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.055703" radius="0.000687" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00213_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00213" />
+    <origin xyz="-0.054948 -0.127375 4.082556" rpy="-2.11325883 -0.43452822 0.74512556" />
+  </joint>
+  <link name="branch_00214">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033085" radius="0.000636" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.033085" radius="0.000636" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00214_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00214" />
+    <origin xyz="-0.077709 -0.124904 4.073837" rpy="-1.89991864 -0.09204168 0.12861178" />
+  </joint>
+  <link name="branch_00215">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.013462" radius="0.000446" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.013462" radius="0.000446" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00215_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00215" />
+    <origin xyz="-0.173836 0.003432 4.073372" rpy="1.83828139 -0.02384794 -0.03126179" />
+  </joint>
+  <link name="branch_00216">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.043363" radius="0.000965" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.043363" radius="0.000965" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00216_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00216" />
+    <origin xyz="0.093957 -0.171593 4.108819" rpy="-2.78467067 -0.90822691 2.43366628" />
+  </joint>
+  <link name="branch_00217">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.023882" radius="0.000642" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.023882" radius="0.000642" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00217_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00217" />
+    <origin xyz="0.102706 -0.198962 4.112404" rpy="2.88457560 -1.07571406 -2.71493683" />
+  </joint>
+  <link name="branch_00218">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.016005" radius="0.000761" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.016005" radius="0.000761" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00218_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00218" />
+    <origin xyz="-0.009036 -0.139947 4.144236" rpy="-1.90694052 -0.42745374 0.59343684" />
+  </joint>
+  <link name="branch_00219">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.113934" radius="0.000995" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.113934" radius="0.000995" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00219_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00219" />
+    <origin xyz="-0.087198 -0.014385 4.242719" rpy="-1.36988181 -1.27708136 1.09013905" />
+  </joint>
+  <link name="branch_00220">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.069564" radius="0.000581" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.069564" radius="0.000581" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00220_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00220" />
+    <origin xyz="-0.106518 -0.067909 4.222682" rpy="1.71844264 -0.88148111 -1.00111566" />
+  </joint>
+  <link name="branch_00221">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.030458" radius="0.000163" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.030458" radius="0.000163" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00221_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00221" />
+    <origin xyz="0.054786 0.026727 4.358931" rpy="2.30039338 -0.84179484 -1.57159505" />
+  </joint>
+  <link name="branch_00222">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034783" radius="0.000398" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034783" radius="0.000398" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00222_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00222" />
+    <origin xyz="0.048722 -0.145739 4.447379" rpy="-2.23933483 -0.67535733 1.25435197" />
+  </joint>
+  <link name="branch_00223">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.024812" radius="0.000573" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.024812" radius="0.000573" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00223_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00223" />
+    <origin xyz="-0.008954 -0.134364 4.469261" rpy="-1.39095816 -0.65924272 0.55623002" />
+  </joint>
+  <link name="branch_00224">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.042978" radius="0.000331" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.042978" radius="0.000331" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00224_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00224" />
+    <origin xyz="-0.032652 -0.204276 4.480624" rpy="1.47392321 -0.62663715 -0.57194556" />
+  </joint>
+  <link name="branch_00225">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.040041" radius="0.000982" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.040041" radius="0.000982" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00225_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00225" />
+    <origin xyz="-0.000736 0.098341 2.876610" rpy="1.75724530 -0.43887651 -0.52562537" />
+  </joint>
+  <link name="branch_00226">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.041425" radius="0.000838" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.041425" radius="0.000838" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00226_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00226" />
+    <origin xyz="-0.144963 0.175968 2.882985" rpy="-2.02631906 -0.56757529 0.87487914" />
+  </joint>
+  <link name="branch_00227">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.015431" radius="0.000560" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.015431" radius="0.000560" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00227_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00227" />
+    <origin xyz="-0.082268 0.246754 2.861546" rpy="1.39262809 -1.07672973 -0.92612841" />
+  </joint>
+  <link name="branch_00228">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.076421" radius="0.000974" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.076421" radius="0.000974" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00228_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00228" />
+    <origin xyz="-0.216452 -0.025886 2.924418" rpy="-1.53912102 -1.36676214 1.33584297" />
+  </joint>
+  <link name="branch_00229">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.065001" radius="0.000386" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.065001" radius="0.000386" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00229_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00229" />
+    <origin xyz="-0.324742 0.014039 2.936436" rpy="-1.78931440 -0.75563006 0.91876873" />
+  </joint>
+  <link name="branch_00230">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.069808" radius="0.000386" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.069808" radius="0.000386" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00230_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00230" />
+    <origin xyz="-0.333574 -0.000649 2.935125" rpy="-2.29781254 -1.27218211 2.04934247" />
+  </joint>
+  <link name="branch_00231">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.038224" radius="0.000667" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.038224" radius="0.000667" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00231_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00231" />
+    <origin xyz="-0.159762 -0.081852 2.940790" rpy="-1.22826030 -0.97924199 0.71883936" />
+  </joint>
+  <link name="branch_00232">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.051095" radius="0.000373" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.051095" radius="0.000373" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00232_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00232" />
+    <origin xyz="-0.274093 -0.087154 2.936590" rpy="-0.71545488 -0.57484718 0.22011059" />
+  </joint>
+  <link name="branch_00233">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.098985" radius="0.001451" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.098985" radius="0.001451" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00233_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00233" />
+    <origin xyz="-0.346216 -0.189189 2.828502" rpy="2.04249501 -1.36167683 -1.84679496" />
+  </joint>
+  <link name="branch_00234">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.078868" radius="0.000771" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.078868" radius="0.000771" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00234_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00234" />
+    <origin xyz="-0.313845 -0.243150 2.883276" rpy="0.77501578 -0.14020988 -0.05730417" />
+  </joint>
+  <link name="branch_00235">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052868" radius="0.000655" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052868" radius="0.000655" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00235_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00235" />
+    <origin xyz="-0.351880 -0.236909 2.865422" rpy="-0.40506704 -0.25886719 0.05344426" />
+  </joint>
+  <link name="branch_00236">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.059117" radius="0.000476" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.059117" radius="0.000476" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00236_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00236" />
+    <origin xyz="-0.407049 -0.236739 2.860709" rpy="0.29069431 -0.71154896 -0.10867807" />
+  </joint>
+  <link name="branch_00237">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.075870" radius="0.001046" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.075870" radius="0.001046" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00237_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00237" />
+    <origin xyz="-0.396488 -0.167817 2.870236" rpy="0.78113384 -0.95814911 -0.42137385" />
+  </joint>
+  <link name="branch_00238">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.042901" radius="0.000936" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.042901" radius="0.000936" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00238_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00238" />
+    <origin xyz="-0.419775 -0.153153 2.844663" rpy="-1.53931025 -0.66465412 0.64547065" />
+  </joint>
+  <link name="branch_00239">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.092327" radius="0.000753" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.092327" radius="0.000753" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00239_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00239" />
+    <origin xyz="-0.475178 -0.224208 2.850267" rpy="0.69844751 -0.84660488 -0.32522964" />
+  </joint>
+  <link name="branch_00240">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054605" radius="0.001058" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054605" radius="0.001058" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00240_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00240" />
+    <origin xyz="-0.387794 -0.116360 2.906154" rpy="0.24299694 -0.62081328 -0.07829338" />
+  </joint>
+  <link name="branch_00241">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.049238" radius="0.000521" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.049238" radius="0.000521" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00241_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00241" />
+    <origin xyz="-0.380801 -0.092862 2.906760" rpy="-0.21259529 -0.12852304 0.01373208" />
+  </joint>
+  <link name="branch_00242">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047140" radius="0.000246" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.047140" radius="0.000246" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00242_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00242" />
+    <origin xyz="-0.436428 -0.071626 2.914370" rpy="-2.10579164 -0.99695295 1.52511463" />
+  </joint>
+  <link name="branch_00243">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.013282" radius="0.000147" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.013282" radius="0.000147" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00243_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00243" />
+    <origin xyz="-0.407362 -0.044938 2.920639" rpy="-1.90753680 -0.73006998 0.98823347" />
+  </joint>
+  <link name="branch_00244">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.020883" radius="0.000425" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.020883" radius="0.000425" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00244_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00244" />
+    <origin xyz="-0.019655 -0.168169 3.104981" rpy="1.38934914 -0.92620959 -0.78852685" />
+  </joint>
+  <link name="branch_00245">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.057759" radius="0.001252" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.057759" radius="0.001252" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00245_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00245" />
+    <origin xyz="-0.089270 -0.119714 3.100289" rpy="1.04691505 -0.21442896 -0.12407721" />
+  </joint>
+  <link name="branch_00246">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.104386" radius="0.001252" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.104386" radius="0.001252" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00246_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00246" />
+    <origin xyz="-0.106188 -0.137646 3.105278" rpy="1.04238207 -0.45835030 -0.26628067" />
+  </joint>
+  <link name="branch_00247">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018660" radius="0.000557" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018660" radius="0.000557" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00247_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00247" />
+    <origin xyz="-0.122823 -0.083643 3.084893" rpy="-1.83467484 -0.14176160 0.18492738" />
+  </joint>
+  <link name="branch_00248">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.176093" radius="0.001129" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.176093" radius="0.001129" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00248_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00248" />
+    <origin xyz="-0.110069 -0.316529 3.113064" rpy="1.47207483 -0.50160520 -0.45607822" />
+  </joint>
+  <link name="branch_00249">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054325" radius="0.000504" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.054325" radius="0.000504" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00249_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00249" />
+    <origin xyz="-0.041321 -0.343278 3.089758" rpy="1.37563932 -0.61197672 -0.50794160" />
+  </joint>
+  <link name="branch_00250">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.017527" radius="0.000625" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.017527" radius="0.000625" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00250_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00250" />
+    <origin xyz="0.124540 0.211801 3.042963" rpy="-1.47054726 -0.12309341 0.11135861" />
+  </joint>
+  <link name="branch_00251">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.031068" radius="0.000750" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.031068" radius="0.000750" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00251_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00251" />
+    <origin xyz="0.083741 0.251689 3.128204" rpy="1.48894469 -1.08070684 -1.00984562" />
+  </joint>
+  <link name="branch_00252">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.015307" radius="0.000487" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.015307" radius="0.000487" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00252_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00252" />
+    <origin xyz="0.083890 0.309780 3.121643" rpy="1.75455895 -1.51258029 -1.69701657" />
+  </joint>
+  <link name="branch_00253">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.023786" radius="0.000142" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.023786" radius="0.000142" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00253_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00253" />
+    <origin xyz="0.050660 0.385994 3.112515" rpy="1.46508581 -0.34752703 -0.31320216" />
+  </joint>
+  <link name="branch_00254">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.071213" radius="0.000721" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.071213" radius="0.000721" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00254_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00254" />
+    <origin xyz="0.031050 0.298646 3.122202" rpy="1.46010296 -0.25112061 -0.22499021" />
+  </joint>
+  <link name="branch_00255">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022038" radius="0.000300" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022038" radius="0.000300" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00255_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00255" />
+    <origin xyz="-0.037056 0.417240 3.110005" rpy="1.27484934 -1.56007741 -1.26461241" />
+  </joint>
+  <link name="branch_00256">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.037482" radius="0.001108" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.037482" radius="0.001108" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00256_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00256" />
+    <origin xyz="-0.253815 -0.144938 3.225887" rpy="1.53244024 -0.17626788 -0.16966576" />
+  </joint>
+  <link name="branch_00257">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.059928" radius="0.000688" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.059928" radius="0.000688" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00257_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00257" />
+    <origin xyz="-0.316530 -0.193858 3.213012" rpy="1.64170290 -0.45838482 -0.49080250" />
+  </joint>
+  <link name="branch_00258">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018564" radius="0.000254" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018564" radius="0.000254" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00258_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00258" />
+    <origin xyz="-0.365253 -0.254772 3.197645" rpy="-1.89895131 -0.71402529 0.96063365" />
+  </joint>
+  <link name="branch_00259">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.037013" radius="0.001129" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.037013" radius="0.001129" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00259_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00259" />
+    <origin xyz="-0.193285 -0.198491 3.236761" rpy="0.25651890 -1.29621239 -0.19469617" />
+  </joint>
+  <link name="branch_00260">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.049011" radius="0.000612" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.049011" radius="0.000612" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00260_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00260" />
+    <origin xyz="-0.202679 -0.259067 3.245062" rpy="1.41439629 -0.35030604 -0.30021981" />
+  </joint>
+  <link name="branch_00261">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034898" radius="0.000251" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.034898" radius="0.000251" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00261_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00261" />
+    <origin xyz="0.117096 -0.254543 3.222860" rpy="1.51653016 -1.06719066 -1.02027327" />
+  </joint>
+  <link name="branch_00262">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.027985" radius="0.000126" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.027985" radius="0.000126" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00262_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00262" />
+    <origin xyz="0.126844 -0.265877 3.224554" rpy="1.58964436 -0.94364284 -0.95898914" />
+  </joint>
+  <link name="branch_00263">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029540" radius="0.000126" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029540" radius="0.000126" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00263_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00263" />
+    <origin xyz="0.131446 -0.270277 3.224881" rpy="1.55515545 -0.47748211 -0.47034389" />
+  </joint>
+  <link name="branch_00264">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029019" radius="0.000853" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.029019" radius="0.000853" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00264_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00264" />
+    <origin xyz="0.262307 -0.119596 3.211959" rpy="1.46186565 -0.79971746 -0.72441745" />
+  </joint>
+  <link name="branch_00265">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.026893" radius="0.000441" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.026893" radius="0.000441" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00265_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00265" />
+    <origin xyz="0.324849 -0.078561 3.200267" rpy="1.77432385 -0.14588933 -0.17891290" />
+  </joint>
+  <link name="branch_00266">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.028729" radius="0.000898" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.028729" radius="0.000898" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00266_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00266" />
+    <origin xyz="-0.136300 0.050077 3.400796" rpy="-1.49390423 -0.48531213 0.45060977" />
+  </joint>
+  <link name="branch_00267">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.012715" radius="0.000364" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.012715" radius="0.000364" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00267_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00267" />
+    <origin xyz="-0.167124 0.087337 3.479387" rpy="-1.61608050 -1.03676216 1.07619717" />
+  </joint>
+  <link name="branch_00268">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.040104" radius="0.000847" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.040104" radius="0.000847" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00268_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00268" />
+    <origin xyz="-0.229450 -0.061895 3.423479" rpy="1.98810262 -0.56214961 -0.83541026" />
+  </joint>
+  <link name="branch_00269">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022514" radius="0.000561" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022514" radius="0.000561" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00269_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00269" />
+    <origin xyz="-0.282261 -0.078969 3.407348" rpy="-1.57403284 -0.08330429 0.08357403" />
+  </joint>
+  <link name="branch_00270">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.044812" radius="0.000289" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.044812" radius="0.000289" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00270_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00270" />
+    <origin xyz="-0.345656 -0.085768 3.393678" rpy="-0.61484390 -0.14266873 0.04536471" />
+  </joint>
+  <link name="branch_00271">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.070923" radius="0.000740" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.070923" radius="0.000740" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00271_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00271" />
+    <origin xyz="-0.248373 -0.020550 3.413515" rpy="2.02346558 -0.72091258 -1.08444649" />
+  </joint>
+  <link name="branch_00272">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.135203" radius="0.000740" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.135203" radius="0.000740" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00272_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00272" />
+    <origin xyz="-0.265890 0.048171 3.439604" rpy="-1.50393739 -0.79386130 0.74726973" />
+  </joint>
+  <link name="branch_00273">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052565" radius="0.000628" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.052565" radius="0.000628" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00273_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00273" />
+    <origin xyz="-0.274415 -0.017101 3.427257" rpy="2.45811094 -1.15346176 -2.14082633" />
+  </joint>
+  <link name="branch_00274">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.023419" radius="0.000612" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.023419" radius="0.000612" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00274_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00274" />
+    <origin xyz="-0.261425 -0.103347 3.395696" rpy="-3.00436982 -0.40528767 2.49606601" />
+  </joint>
+  <link name="branch_00275">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.077666" radius="0.000610" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.077666" radius="0.000610" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00275_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00275" />
+    <origin xyz="-0.136249 0.078843 3.526506" rpy="0.05899607 -1.24019955 -0.04213270" />
+  </joint>
+  <link name="branch_00276">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.050080" radius="0.000326" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.050080" radius="0.000326" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00276_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00276" />
+    <origin xyz="-0.128999 0.117069 3.551531" rpy="2.52850833 -0.11712105 -0.36630055" />
+  </joint>
+  <link name="branch_00277">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.068551" radius="0.000326" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.068551" radius="0.000326" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00277_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00277" />
+    <origin xyz="-0.155500 0.119850 3.545146" rpy="-0.90233625 -0.84941760 0.43139298" />
+  </joint>
+  <link name="branch_00278">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.088081" radius="0.000631" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.088081" radius="0.000631" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00278_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00278" />
+    <origin xyz="-0.129763 0.239866 3.556987" rpy="-1.43154167 -0.45963304 0.40141330" />
+  </joint>
+  <link name="branch_00279">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.070451" radius="0.000631" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.070451" radius="0.000631" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00279_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00279" />
+    <origin xyz="-0.118868 0.233726 3.554983" rpy="-1.46812753 -0.06739442 0.06081174" />
+  </joint>
+  <link name="branch_00280">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.061264" radius="0.000326" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.061264" radius="0.000326" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00280_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00280" />
+    <origin xyz="-0.068146 0.220939 3.601800" rpy="-2.74837878 -1.25117875 2.60350866" />
+  </joint>
+  <link name="branch_00281">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022340" radius="0.000344" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.022340" radius="0.000344" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00281_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00281" />
+    <origin xyz="0.173756 -0.277727 3.570676" rpy="-1.82510994 -0.06701918 0.08664570" />
+  </joint>
+  <link name="branch_00282">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.079697" radius="0.000534" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.079697" radius="0.000534" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00282_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00282" />
+    <origin xyz="-0.136581 0.171502 3.907903" rpy="-1.39367662 -0.36416832 0.30578014" />
+  </joint>
+  <link name="branch_00283">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.030979" radius="0.000652" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.030979" radius="0.000652" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00283_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00283" />
+    <origin xyz="-0.058821 -0.056619 4.066526" rpy="-0.08357635 -0.97995856 0.04459498" />
+  </joint>
+  <link name="branch_00284">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.051919" radius="0.000309" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.051919" radius="0.000309" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00284_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00284" />
+    <origin xyz="-0.056306 -0.011998 4.055436" rpy="-1.65988750 -0.32914938 0.35923293" />
+  </joint>
+  <link name="branch_00285">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.053352" radius="0.000231" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.053352" radius="0.000231" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00285_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00285" />
+    <origin xyz="-0.080610 -0.020422 4.082883" rpy="-0.94021917 -0.59698465 0.31016127" />
+  </joint>
+  <link name="branch_00286">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018502" radius="0.000448" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.018502" radius="0.000448" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00286_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00286" />
+    <origin xyz="-0.085329 0.000053 4.255078" rpy="2.33290609 -0.00946001 -0.02210609" />
+  </joint>
+  <link name="branch_00287">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.009419" radius="0.000200" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.009419" radius="0.000200" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00287_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00287" />
+    <origin xyz="-0.025226 -0.212508 4.485345" rpy="-1.47166304 -0.58786236 0.53503317" />
+  </joint>
+  <link name="branch_00288">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.035657" radius="0.000472" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.035657" radius="0.000472" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00288_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00288" />
+    <origin xyz="-0.489972 -0.231984 2.834663" rpy="1.95863336 -1.38740280 -1.78270440" />
+  </joint>
+  <link name="branch_00289">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.025222" radius="0.000884" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.025222" radius="0.000884" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00289_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00289" />
+    <origin xyz="-0.101847 -0.247624 3.119238" rpy="0.37385752 -0.54404321 -0.10541636" />
+  </joint>
+  <link name="branch_00290">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.044138" radius="0.000347" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.044138" radius="0.000347" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00290_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00290" />
+    <origin xyz="-0.113767 -0.358007 3.113051" rpy="-1.09270558 -0.56941765 0.35224355" />
+  </joint>
+  <link name="branch_00291">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.024073" radius="0.000230" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.024073" radius="0.000230" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00291_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00291" />
+    <origin xyz="-0.306801 0.079862 3.443420" rpy="-1.31801653 -1.26482397 1.03247722" />
+  </joint>
+  <link name="branch_00292">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.009893" radius="0.000251" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.009893" radius="0.000251" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="branch_00292_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="branch_00292" />
+    <origin xyz="-0.133055 0.267086 3.559652" rpy="1.36882832 -0.68504290 -0.56628941" />
+  </joint>
+</robot>

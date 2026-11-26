@@ -1,4 +1,4 @@
-from isaacgym import gymapi
+from isaacgym import gymapi, gymutil
 import numpy as np
 
 from aerial_gym.utils.math import quat_from_euler_xyz
@@ -91,6 +91,17 @@ class IGEViewerControl:
 
         self.pause_sim = False
 
+        self.actor_handles = []
+        self.env_handles = []
+        self.global_tensor_dict = {}
+
+        # Waypoint visualization geometries
+        self.show_waypoints = True
+        self.waypoint_sphere_geom = gymutil.WireframeSphereGeometry(
+            radius=0.35, num_lats=8, num_lons=8, color=(1.0, 0.2, 0.1)
+        )
+        self.waypoint_axes_geom = gymutil.AxesGeometry(scale=0.5)
+
         self.create_viewer()
 
     def set_actor_and_env_handles(self, actor_handles, env_handles):
@@ -98,6 +109,7 @@ class IGEViewerControl:
         self.env_handles = env_handles
 
     def init_tensors(self, global_tensor_dict):
+        self.global_tensor_dict = global_tensor_dict
         self.robot_positions = global_tensor_dict["robot_position"]
         self.robot_vehicle_orientations = global_tensor_dict["robot_orientation"]
 
@@ -138,6 +150,8 @@ class IGEViewerControl:
         )
         # Pause simulation using the SPACE key.
         self.gym.subscribe_viewer_keyboard_event(self.viewer, gymapi.KEY_SPACE, "pause_simulation")
+        # Toggle waypoint visualization using the T key.
+        self.gym.subscribe_viewer_keyboard_event(self.viewer, gymapi.KEY_T, "toggle_waypoints")
         str_instructions = (
             "Instructions for using the viewer with the keyboard:\n"
             + "ESC: Quit\n"
@@ -149,6 +163,7 @@ class IGEViewerControl:
             + "UP: Switch Target Environment Up\n"
             + "DOWN: Switch Target Environment Down\n"
             + "SPACE: Pause Simulation\n"
+            + "T: Toggle Waypoint Visualization\n"
         )
         logger.warning(str_instructions)
 
@@ -175,6 +190,8 @@ class IGEViewerControl:
                 self.pause_simulation()
             elif evt.action == "sync_frame_time" and evt.value > 0:
                 self.toggle_sync_frame_time()
+            elif evt.action == "toggle_waypoints" and evt.value > 0:
+                self.toggle_waypoints()
 
     def reset_all_envs(self):
         logger.warning("Resetting all environments.")
@@ -278,6 +295,63 @@ class IGEViewerControl:
                 self.lookat,
             )
 
+    def toggle_waypoints(self):
+        self.show_waypoints = not self.show_waypoints
+        logger.warning(f"Waypoint visualization: {self.show_waypoints}")
+        if not self.show_waypoints and self.viewer is not None:
+            self.gym.clear_lines(self.viewer)
+
+    def draw_waypoints(self):
+        if not self.show_waypoints or not hasattr(self, "global_tensor_dict"):
+            return
+        if "target_position" not in self.global_tensor_dict:
+            return
+
+        target_positions = self.global_tensor_dict["target_position"]
+        if target_positions is None or len(self.env_handles) == 0:
+            return
+
+        self.gym.clear_lines(self.viewer)
+
+        num_envs_to_draw = min(len(self.env_handles), target_positions.shape[0])
+        for i in range(num_envs_to_draw):
+            env_handle = self.env_handles[i]
+            target_pos = target_positions[i]
+
+            target_z = float(target_pos[2]) if target_pos.shape[0] > 2 else 1.5
+            target_pose = gymapi.Transform()
+            target_pose.p = gymapi.Vec3(
+                float(target_pos[0]), float(target_pos[1]), target_z
+            )
+
+            # Draw wireframe sphere at target waypoint
+            gymutil.draw_lines(
+                self.waypoint_sphere_geom, self.gym, self.viewer, env_handle, target_pose
+            )
+
+            # Draw coordinate axes at target waypoint
+            gymutil.draw_lines(
+                self.waypoint_axes_geom, self.gym, self.viewer, env_handle, target_pose
+            )
+
+            # Draw line connecting drone to its target waypoint
+            if hasattr(self, "robot_positions") and self.robot_positions is not None:
+                robot_pos = self.robot_positions[i]
+                p1 = gymapi.Vec3(float(robot_pos[0]), float(robot_pos[1]), float(robot_pos[2]))
+                p2 = target_pose.p
+                line_color = gymapi.Vec3(0.0, 1.0, 0.5)  # Cyan-green line
+                gymutil.draw_line(p1, p2, line_color, self.gym, self.viewer, env_handle)
+
+                ground_heights = self.global_tensor_dict.get("ground_height", None)
+                if ground_heights is not None and i < ground_heights.shape[0]:
+                    p_ground = gymapi.Vec3(
+                        float(robot_pos[0]), float(robot_pos[1]), float(ground_heights[i])
+                    )
+                    clearance_color = gymapi.Vec3(1.0, 0.85, 0.0)  # Yellow clearance ray
+                    gymutil.draw_line(
+                        p1, p_ground, clearance_color, self.gym, self.viewer, env_handle
+                    )
+
     def render(self):
         """
         Draw the viewer.
@@ -289,6 +363,7 @@ class IGEViewerControl:
         if self.enable_viewer_sync:
             if self.camera_follow:
                 self.set_camera_lookat()
+            self.draw_waypoints()
             self.gym.draw_viewer(self.viewer, self.sim, False)
             if self.sync_frame_time:
                 self.gym.sync_frame_time(self.sim)

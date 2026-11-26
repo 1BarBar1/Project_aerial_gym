@@ -60,6 +60,7 @@ class asset_state_params:
     ]  # position, quat x, y, z, w
 
     use_collision_mesh_instead_of_visual = False
+    scale = 1.0
 
 
 class panel_asset_params(asset_state_params):
@@ -223,20 +224,22 @@ class thin_asset_params(asset_state_params):
 
 
 class tree_asset_params(asset_state_params):
-    num_assets = 1
+    num_assets = 20
+    scale = 1.0
 
     asset_folder = f"{AERIAL_GYM_DIRECTORY}/resources/models/environment_assets/trees"
 
     collision_mask = 1  # objects with the same collision mask will not collide
 
+    # The 1st value is X position. The 5th is pitch (0.0 = straight).
     min_state_ratio = [
-        0.1,
-        0.1,
+        0.15,  # <--- X min: -2.5m (after drone spawn at -5m)
+        0.1,   # Y min
+        0.0,   # Z min (terrain height Z(X) is added automatically in AssetManager)
         0.0,
-        0,
-        -np.pi / 6.0,
+        0.0,   # Pitch (straight trees)
         -np.pi,
-        1.0,
+        0.5,   # Scale min
         0.0,
         0.0,
         0.0,
@@ -245,13 +248,13 @@ class tree_asset_params(asset_state_params):
         0.0,
     ]
     max_state_ratio = [
-        0.9,
-        0.9,
+        0.88,  # <--- X max: 34.0m (before goal at 37.5m)
+        0.9,   # Y max
+        0.0,   # Z max (terrain height Z(X) is added automatically in AssetManager)
         0.0,
-        0,
-        np.pi / 6.0,
+        0.0,   # Pitch (straight trees)
         np.pi,
-        1.0,
+        2.0,   # Scale max
         0.0,
         0.0,
         0.0,
@@ -259,15 +262,15 @@ class tree_asset_params(asset_state_params):
         0.0,
         0.0,
     ]
-
     collapse_fixed_joints = True
     per_link_semantic = True
     keep_in_env = True
 
-    semantic_id = -1  # TREE_SEMANTIC_ID
+    semantic_id = -1  
     color = [70, 200, 100]
 
     semantic_masked_links = {}
+
 
 
 class object_asset_params(asset_state_params):
@@ -420,7 +423,7 @@ class top_wall(asset_state_params):
         0.5,
         1.0,
         0.0,
-        0.0,
+        -25 * np.pi / 180,  # <--- Pitch tilted 25 degrees
         0.0,
         1.0,
         0.0,
@@ -435,7 +438,7 @@ class top_wall(asset_state_params):
         0.5,
         1.0,
         0.0,
-        0.0,
+        -25 * np.pi / 180,  # <--- Pitch tilted 25 degrees
         0.0,
         1.0,
         0.0,
@@ -460,14 +463,14 @@ class bottom_wall(asset_state_params):
     asset_folder = f"{AERIAL_GYM_DIRECTORY}/resources/models/environment_assets/walls"
     file = "bottom_wall.urdf"
 
-    collision_mask = 1  # objects with the same collision mask will not collide
+    collision_mask = 1  
 
     min_state_ratio = [
+        0.2,
         0.5,
-        0.5,
         0.0,
         0.0,
-        0.0,
+        0.0,  # <--- Pitch tilted 25 degrees
         0.0,
         1.0,
         0.0,
@@ -478,11 +481,11 @@ class bottom_wall(asset_state_params):
         0.0,
     ]
     max_state_ratio = [
+        0.2,
         0.5,
-        0.5,
         0.0,
         0.0,
-        0.0,
+        0.0,  # <--- Pitch tilted 25 degrees
         0.0,
         1.0,
         0.0,
@@ -501,6 +504,51 @@ class bottom_wall(asset_state_params):
     semantic_id = BOTTOM_WALL_SEMANTIC_ID
     color = [100, 150, 150]
 
+
+class terrain_asset_params(asset_state_params):
+    num_assets = 1
+    asset_folder = f"{AERIAL_GYM_DIRECTORY}/resources/models/environment_assets/terrains"
+    file = None  # Randomly pick one hill_*.urdf per environment
+
+    collision_mask = 1
+    flip_visual_attachments = False  # Keep Z-up consistent between Isaac Gym and Warp
+
+    min_state_ratio = [
+        0.2,  # X = 0.0 in [-10, 40]
+        0.5,  # Y = 0.0 in [-10, 10]
+        0.0,  # Z = 0.0
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+    ]
+    max_state_ratio = [
+        0.2,
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+    ]
+
+    keep_in_env = True
+    collapse_fixed_joints = True
+    per_link_semantic = False
+    semantic_id = BOTTOM_WALL_SEMANTIC_ID
+    color = [100, 150, 110]
 
 class front_wall(asset_state_params):
     num_assets = 1

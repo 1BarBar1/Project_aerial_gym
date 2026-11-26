@@ -21,8 +21,8 @@ class LMF2Cfg:
         # init_state tensor is of the format [ratio_x, ratio_y, ratio_z, roll_radians, pitch_radians, yaw_radians, 1.0 (for maintaining shape), vx, vy, vz, wx, wy, wz]
         min_init_state = [
             0.1,
-            0.15,
-            0.15,
+            0.5,
+            0.3,
             0,  # -np.pi / 6,
             0,  # -np.pi / 6,
             -np.pi / 6,
@@ -35,9 +35,9 @@ class LMF2Cfg:
             -0.2,
         ]
         max_init_state = [
-            0.2,
-            0.85,
-            0.85,
+            0.1,
+            0.5,
+            0.3,
             0,  # np.pi / 6,
             0,  # np.pi / 6,
             np.pi / 6,

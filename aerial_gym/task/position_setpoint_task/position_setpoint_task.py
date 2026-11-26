@@ -84,6 +84,7 @@ class PositionSetpointTask(BaseTask):
         # Get the dictionary once from the environment and use it to get the observations later.
         # This is to avoid constant retuning of data back anf forth across functions as the tensors update and can be read in-place.
         self.obs_dict = self.sim_env.get_obs()
+        self.obs_dict["target_position"] = self.target_position
         self.obs_dict["num_obstacles_in_env"] = 1
         self.terminations = self.obs_dict["crashes"]
         self.truncations = self.obs_dict["truncations"]
@@ -133,7 +134,9 @@ class PositionSetpointTask(BaseTask):
         self.sim_env.delete_env()
 
     def reset(self):
-        self.target_position[:, 0:3] = 0.0  # torch.rand_like(self.target_position) * 10.0
+          # torch.rand_like(self.target_position) * 10.0
+        self.target_position[:, 0:3] = torch.tensor([5.0, 0.0, 10.0])
+        
         self.infos = {}
         self.sim_env.reset()
         return self.get_return_tuple()

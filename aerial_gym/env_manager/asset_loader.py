@@ -90,6 +90,7 @@ class AssetLoader:
             "force_sensor_parent_link": asset_class_config.force_sensor_parent_link,
             "force_sensor_transform": asset_class_config.force_sensor_transform,
             "use_collision_mesh_instead_of_visual": asset_class_config.use_collision_mesh_instead_of_visual,
+            "scale": getattr(asset_class_config, "scale", 1.0),
             # do stuff with position, randomization, etc
         }
         max_list_vals = 0

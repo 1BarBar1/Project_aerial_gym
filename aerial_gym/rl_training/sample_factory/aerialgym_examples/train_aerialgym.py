@@ -38,23 +38,33 @@ class AerialGymVecEnv(gym.Env):
         self.env = aerialgym_env
         self.num_agents = self.env.num_envs
         self.action_space = convert_space(self.env.action_space)
+        self.obs_key = obs_key
 
         # isaacgym_examples environments actually return dicts
         if obs_key == "obs" or obs_key == "observations":
-            self.observation_space = gym.spaces.Dict(convert_space(self.env.observation_space))
+            raw_spaces = convert_space(self.env.observation_space)
+            if obs_key == "obs" and "observations" in raw_spaces.spaces:
+                self.observation_space = gym.spaces.Dict({"obs": raw_spaces.spaces["observations"]})
+            else:
+                self.observation_space = gym.spaces.Dict(raw_spaces)
         else:
             raise ValueError(f"Unknown observation key: {obs_key}")
 
         self._truncated: Tensor = torch.zeros(self.num_agents, dtype=torch.bool)
 
+    def _remap_obs(self, obs: Dict[str, Tensor]) -> Dict[str, Tensor]:
+        if self.obs_key == "obs" and "observations" in obs and "obs" not in obs:
+            return {"obs": obs["observations"]}
+        return obs
+
     def reset(self, *args, **kwargs) -> Tuple[Dict[str, Tensor], Dict]:
         # some IGE envs return all zeros on the first timestep, but this is probably okay
         obs, rew, terminated, truncated, infos = self.env.reset()
-        return obs, infos
+        return self._remap_obs(obs), infos
 
     def step(self, action) -> Tuple[Dict[str, Tensor], Tensor, Tensor, Tensor, Dict]:
         obs, rew, terminated, truncated, infos = self.env.step(action)
-        return obs, rew, terminated, truncated, infos
+        return self._remap_obs(obs), rew, terminated, truncated, infos
 
     def render(self):
         pass
@@ -146,7 +156,9 @@ def override_default_params_func(env, parser):
         value_bootstrap=True,  # assuming reward from the last step in the episode can generally be ignored
         normalize_input=True,
         normalize_returns=True,  # does not improve results on all envs, but with return normalization we don't need to tune reward scale
-        save_best_after=int(1e5),
+        save_best_after=0,
+        save_best_every_sec=5,
+        save_best_metric="reward",
         serial_mode=True,  # it makes sense to run isaacgym envs in serial mode since most of the parallelism comes from the env itself (although async mode works!)
         async_rl=True,
         use_env_info_cache=False,  # speeds up startup
@@ -348,3 +360,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+

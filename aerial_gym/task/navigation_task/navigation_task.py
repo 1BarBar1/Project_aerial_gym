@@ -1,7 +1,15 @@
 from aerial_gym.task.base_task import BaseTask
 from aerial_gym.sim.sim_builder import SimBuilder
+from collections import deque
+import os
+import time
 import torch
 import numpy as np
+import warp as wp
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 from aerial_gym.utils.math import *
 
@@ -13,6 +21,47 @@ import gymnasium as gym
 from gym.spaces import Dict, Box
 
 logger = CustomLogger("navigation_task")
+
+
+@wp.kernel
+def raycast_ground_kernel(
+    mesh_ids: wp.array(dtype=wp.uint64),
+    robot_positions: wp.array(dtype=wp.vec3),
+    ground_heights: wp.array(dtype=wp.float32),
+    ground_clearances: wp.array(dtype=wp.float32),
+    hit_flags: wp.array(dtype=wp.int32),
+    max_distance: float,
+):
+    env_id = wp.tid()
+    origin = robot_positions[env_id]
+    direction = wp.vec3(0.0, 0.0, -1.0)
+
+    t = float(0.0)
+    u = float(0.0)
+    v = float(0.0)
+    sign = float(0.0)
+    normal = wp.vec3()
+    face = int(0)
+
+    if wp.mesh_query_ray(
+        mesh_ids[env_id],
+        origin,
+        direction,
+        max_distance,
+        t,
+        u,
+        v,
+        sign,
+        normal,
+        face,
+    ):
+        ground_heights[env_id] = origin[2] - t
+        ground_clearances[env_id] = t
+        hit_flags[env_id] = 1
+    else:
+        ground_heights[env_id] = 0.0
+        ground_clearances[env_id] = 0.0
+        hit_flags[env_id] = 0
 
 
 def dict_to_class(dict):
@@ -63,8 +112,47 @@ class NavigationTask(BaseTask):
             headless=self.task_config.headless,
         )
 
+        # The navigation target is horizontal; altitude is controlled by the
+        # ground-clearance reward instead.
         self.target_position = torch.zeros(
-            (self.sim_env.num_envs, 3), device=self.device, requires_grad=False
+            (self.sim_env.num_envs, 2), device=self.device, requires_grad=False
+        )
+
+        if not getattr(self.sim_env, "use_warp", False):
+            raise RuntimeError(
+                "NavigationTask ground raycasting requires use_warp=True."
+            )
+        self.warp_mesh_ids = wp.array(
+            self.sim_env.warp_env.warp_mesh_id_list,
+            dtype=wp.uint64,
+            device=self.device,
+        )
+        self.ground_height = torch.zeros(
+            self.sim_env.num_envs, device=self.device, requires_grad=False
+        )
+        self.ground_clearance = torch.zeros_like(self.ground_height)
+        self.ground_hit = torch.zeros(
+            self.sim_env.num_envs, device=self.device, dtype=torch.int32
+        )
+        self.ground_ray_max_distance = float(
+            getattr(self.task_config, "ground_ray_max_distance", 100.0)
+        )
+        self.target_ground_clearance = float(
+            getattr(self.task_config, "target_ground_clearance", 1.5)
+        )
+        self.ground_height_reward_magnitude = float(
+            torch.as_tensor(
+                self.task_config.reward_parameters.get(
+                    "ground_height_reward_magnitude", 2.0
+                )
+            ).item()
+        )
+        self.ground_height_reward_exponent = float(
+            torch.as_tensor(
+                self.task_config.reward_parameters.get(
+                    "ground_height_reward_exponent", 2.0
+                )
+            ).item()
         )
 
         self.target_min_ratio = torch.tensor(
@@ -78,8 +166,12 @@ class NavigationTask(BaseTask):
         self.crashes_aggregate = 0
         self.timeouts_aggregate = 0
 
-        self.pos_error_vehicle_frame_prev = torch.zeros_like(self.target_position)
-        self.pos_error_vehicle_frame = torch.zeros_like(self.target_position)
+        self.pos_error_vehicle_frame_prev = torch.zeros(
+            (self.sim_env.num_envs, 3), device=self.device, requires_grad=False
+        )
+        self.pos_error_vehicle_frame = torch.zeros_like(
+            self.pos_error_vehicle_frame_prev
+        )
 
         if self.task_config.vae_config.use_vae:
             self.vae_model = VAEImageEncoder(config=self.task_config.vae_config, device=self.device)
@@ -94,6 +186,32 @@ class NavigationTask(BaseTask):
         # Get the dictionary once from the environment and use it to get the observations later.
         # This is to avoid constant retuning of data back anf forth across functions as the tensors update and can be read in-place.
         self.obs_dict = self.sim_env.get_obs()
+        self.obs_dict["target_position"] = self.target_position
+        self.obs_dict["ground_height"] = self.ground_height
+        self.obs_dict["ground_clearance"] = self.ground_clearance
+
+        self.episode_clearance_sum = torch.zeros(
+            self.sim_env.num_envs, device=self.device, requires_grad=False
+        )
+        self.episode_clearance_steps = torch.zeros(
+            self.sim_env.num_envs, device=self.device, requires_grad=False
+        )
+        self.episode_reward_sum = torch.zeros(
+            self.sim_env.num_envs, device=self.device, requires_grad=False
+        )
+        self.total_episodes_completed = 0
+        self.plot_rolling_window = 100  # Matches Sample Factory stats_avg=100
+        self.recent_episode_clearances = deque(maxlen=self.plot_rolling_window)
+        self.recent_episode_rewards = deque(maxlen=self.plot_rolling_window)
+        self.recent_episode_successes = deque(maxlen=self.plot_rolling_window)
+        self.plot_episodes_x = []
+        self.plot_clearance_y = []
+        self.plot_reward_y = []
+        self.plot_success_rate_y = []
+        self.last_plot_save_time = 0.0
+        self.clearance_plot_path = os.path.join(
+            os.getcwd(), "avg_ground_clearance_training.png"
+        )
         if "curriculum_level" not in self.obs_dict.keys():
             self.curriculum_level = self.task_config.curriculum.min_level
             self.obs_dict["curriculum_level"] = self.curriculum_level
@@ -124,7 +242,9 @@ class NavigationTask(BaseTask):
                 # ),
             }
         )
-        self.action_space = Box(low=-1.0, high=1.0, shape=(4,), dtype=np.float32)
+        self.action_space = Box(
+            low=-1.0, high=1.0, shape=(self.task_config.action_space_dim,), dtype=np.float32
+        )
         self.action_transformation_function = self.task_config.action_transformation_function
 
         self.num_envs = self.sim_env.num_envs
@@ -160,18 +280,21 @@ class NavigationTask(BaseTask):
         self.sim_env.delete_env()
 
     def reset(self):
+        self.infos = {}
         self.reset_idx(torch.arange(self.sim_env.num_envs))
         return self.get_return_tuple()
 
     def reset_idx(self, env_ids):
         target_ratio = torch_rand_float_tensor(self.target_min_ratio, self.target_max_ratio)
         self.target_position[env_ids] = torch_interpolate_ratio(
-            min=self.obs_dict["env_bounds_min"][env_ids],
-            max=self.obs_dict["env_bounds_max"][env_ids],
-            ratio=target_ratio[env_ids],
+            min=self.obs_dict["env_bounds_min"][env_ids, :2],
+            max=self.obs_dict["env_bounds_max"][env_ids, :2],
+            ratio=target_ratio[env_ids, :2],
         )
+        self.episode_clearance_sum[env_ids] = 0.0
+        self.episode_clearance_steps[env_ids] = 0.0
+        self.episode_reward_sum[env_ids] = 0.0
         # logger.warning(f"reset envs: {env_ids}")
-        self.infos = {}
         return
 
     def render(self):
@@ -309,16 +432,20 @@ class NavigationTask(BaseTask):
         if self.task_config.return_state_before_reset == True:
             return_tuple = self.get_return_tuple()
 
+        # successes are the sum of the environments which have reached the target (x, y) within a distance threshold
+        dist_to_goal = torch.norm(
+            self.target_position - self.obs_dict["robot_position"][:, :2], dim=1
+        )
+        reached_goal = dist_to_goal < 1.0
+        timed_out = self.sim_env.sim_steps > self.task_config.episode_len_steps
+
         self.truncations[:] = torch.where(
-            self.sim_env.sim_steps > self.task_config.episode_len_steps,
+            reached_goal | timed_out,
             torch.ones_like(self.truncations),
             torch.zeros_like(self.truncations),
         )
 
-        # successes are are the sum of the environments which are to be truncated and have reached the target within a distance threshold
-        successes = self.truncations * (
-            torch.norm(self.target_position - self.obs_dict["robot_position"], dim=1) < 1.0
-        )
+        successes = self.truncations * reached_goal
         successes = torch.where(self.terminations > 0, torch.zeros_like(successes), successes)
         timeouts = torch.where(
             self.truncations > 0, torch.logical_not(successes), torch.zeros_like(successes)
@@ -327,9 +454,41 @@ class NavigationTask(BaseTask):
             self.terminations > 0, torch.zeros_like(timeouts), timeouts
         )  # timeouts are not counted if there is a crash
 
+        self.infos["dist_to_goal"] = dist_to_goal
         self.infos["successes"] = successes
         self.infos["timeouts"] = timeouts
         self.infos["crashes"] = self.terminations
+
+        valid_clearance = torch.where(
+            self.ground_hit > 0,
+            self.ground_clearance,
+            torch.zeros_like(self.ground_clearance),
+        )
+        self.episode_clearance_sum += valid_clearance
+        self.episode_clearance_steps += (self.ground_hit > 0).to(
+            self.episode_clearance_steps.dtype
+        )
+        self.episode_reward_sum += self.rewards
+        ep_avg_clearance = torch.where(
+            self.episode_clearance_steps > 0,
+            self.episode_clearance_sum / self.episode_clearance_steps.clamp(min=1.0),
+            self.ground_clearance,
+        )
+        self.infos["ground_clearance"] = self.ground_clearance.clone()
+        self.infos["ep_avg_ground_clearance"] = ep_avg_clearance.clone()
+
+        done_mask = (self.terminations > 0) | (self.truncations > 0)
+        if torch.any(done_mask):
+            finished_clearances = ep_avg_clearance[done_mask].detach().cpu().tolist()
+            finished_rewards = self.episode_reward_sum[done_mask].detach().cpu().tolist()
+            finished_successes = (
+                (successes[done_mask] > 0).to(torch.float32).detach().cpu().tolist()
+            )
+            self.recent_episode_clearances.extend(finished_clearances)
+            self.recent_episode_rewards.extend(finished_rewards)
+            self.recent_episode_successes.extend(finished_successes)
+            self.total_episodes_completed += len(finished_clearances)
+            self.update_and_save_clearance_plot()
 
         self.logging_sanity_check(self.infos)
         self.check_and_update_curriculum_level(
@@ -367,13 +526,18 @@ class NavigationTask(BaseTask):
         )
 
     def process_obs_for_task(self):
+        target_vector_world = torch.zeros_like(self.obs_dict["robot_position"])
+        target_vector_world[:, :2] = (
+            self.target_position - self.obs_dict["robot_position"][:, :2]
+        )
         vec_to_tgt = quat_rotate_inverse(
             self.obs_dict["robot_vehicle_orientation"],
-            (self.target_position - self.obs_dict["robot_position"]),
+            target_vector_world,
         )
-        perturbed_vec_to_tgt = vec_to_tgt + 0.1 * 2 * (torch.rand_like(vec_to_tgt - 0.5))
+        perturbed_vec_to_tgt = vec_to_tgt + 0.1 * 2 * (torch.rand_like(vec_to_tgt) - 0.5)
+        perturbed_vec_to_tgt[:, 2] = 0.0
         dist_to_tgt = torch.norm(vec_to_tgt, dim=-1)
-        perturbed_unit_vec_to_tgt = perturbed_vec_to_tgt / dist_to_tgt.unsqueeze(1)
+        perturbed_unit_vec_to_tgt = perturbed_vec_to_tgt / dist_to_tgt.clamp(min=1e-3).unsqueeze(1)
         self.task_obs["observations"][:, 0:3] = perturbed_unit_vec_to_tgt
         self.task_obs["observations"][:, 3] = dist_to_tgt
         # self.task_obs["observation"][:, 3] = self.infos["successes"]
@@ -396,15 +560,17 @@ class NavigationTask(BaseTask):
 
     def compute_rewards_and_crashes(self, obs_dict):
         robot_position = obs_dict["robot_position"]
-        target_position = self.target_position
         robot_vehicle_orientation = obs_dict["robot_vehicle_orientation"]
         robot_orientation = obs_dict["robot_orientation"]
         target_orientation = torch.zeros_like(robot_orientation, device=self.device)
         target_orientation[:, 3] = 1.0
+        target_vector_world = torch.zeros_like(robot_position)
+        target_vector_world[:, :2] = self.target_position - robot_position[:, :2]
         self.pos_error_vehicle_frame_prev[:] = self.pos_error_vehicle_frame
         self.pos_error_vehicle_frame[:] = quat_rotate_inverse(
-            robot_vehicle_orientation, (target_position - robot_position)
+            robot_vehicle_orientation, target_vector_world
         )
+        self.update_ground_measurement()
         return compute_reward(
             self.pos_error_vehicle_frame,
             self.pos_error_vehicle_frame_prev,
@@ -413,7 +579,110 @@ class NavigationTask(BaseTask):
             obs_dict["robot_prev_actions"],
             self.curriculum_progress_fraction,
             self.task_config.reward_parameters,
+            self.ground_clearance,
+            self.ground_hit,
+            self.target_ground_clearance,
+            self.ground_height_reward_magnitude,
+            self.ground_height_reward_exponent,
         )
+
+    def update_ground_measurement(self):
+        """Cast a vertical ray from each robot and update ground measurements."""
+        robot_positions = wp.from_torch(
+            self.obs_dict["robot_position"], dtype=wp.vec3
+        )
+        ground_heights_wp = wp.from_torch(self.ground_height, dtype=wp.float32)
+        ground_clearances_wp = wp.from_torch(self.ground_clearance, dtype=wp.float32)
+        hit_flags_wp = wp.from_torch(self.ground_hit, dtype=wp.int32)
+
+        wp.launch(
+            kernel=raycast_ground_kernel,
+            dim=self.sim_env.num_envs,
+            inputs=[
+                self.warp_mesh_ids,
+                robot_positions,
+                ground_heights_wp,
+                ground_clearances_wp,
+                hit_flags_wp,
+                self.ground_ray_max_distance,
+            ],
+            device=self.device,
+        )
+
+    def update_and_save_clearance_plot(self):
+        """Record rolling mean episode clearance, reward, and success rate and atomically save the training plot."""
+        now = time.time()
+        if self.last_plot_save_time != 0.0 and (now - self.last_plot_save_time) < 2.0:
+            return
+        if not self.recent_episode_clearances:
+            return
+
+        mean_clearance = float(np.mean(self.recent_episode_clearances))
+        mean_reward = float(np.mean(self.recent_episode_rewards))
+        mean_success_rate = 100.0 * float(np.mean(self.recent_episode_successes))
+
+        self.plot_episodes_x.append(self.total_episodes_completed)
+        self.plot_clearance_y.append(mean_clearance)
+        self.plot_reward_y.append(mean_reward)
+        self.plot_success_rate_y.append(mean_success_rate)
+
+        fig, axes = plt.subplots(3, 1, figsize=(8, 10.5), sharex=True)
+
+        # 1. Average Height Above Ground
+        axes[0].plot(
+            self.plot_episodes_x,
+            self.plot_clearance_y,
+            color="tab:blue",
+            linewidth=1.8,
+            label=f"Avg Ground Clearance (last {self.plot_rolling_window} eps)",
+        )
+        axes[0].axhline(
+            self.target_ground_clearance,
+            color="tab:orange",
+            linestyle="--",
+            linewidth=1.2,
+            label=f"Target ({self.target_ground_clearance:.2f} m)",
+        )
+        axes[0].set_ylabel("Avg Height Above Ground (m)")
+        axes[0].set_title("Average Height Above Ground During Training")
+        axes[0].grid(True, alpha=0.3)
+        axes[0].legend()
+
+        # 2. Average Episode Reward
+        axes[1].plot(
+            self.plot_episodes_x,
+            self.plot_reward_y,
+            color="tab:green",
+            linewidth=1.8,
+            label=f"Avg Episode Reward (last {self.plot_rolling_window} eps)",
+        )
+        axes[1].set_ylabel("Avg Episode Reward")
+        axes[1].set_title("Average Episode Reward During Training")
+        axes[1].grid(True, alpha=0.3)
+        axes[1].legend()
+
+        # 3. Average Success Rate
+        axes[2].plot(
+            self.plot_episodes_x,
+            self.plot_success_rate_y,
+            color="tab:purple",
+            linewidth=1.8,
+            label=f"Avg Success Rate % (last {self.plot_rolling_window} eps)",
+        )
+        axes[2].set_ylim(-5.0, 105.0)
+        axes[2].set_xlabel("Number of Episodes")
+        axes[2].set_ylabel("Success Rate (%)")
+        axes[2].set_title("Average Success Rate During Training")
+        axes[2].grid(True, alpha=0.3)
+        axes[2].legend()
+
+        fig.tight_layout()
+
+        tmp_path = f"{self.clearance_plot_path}.tmp.png"
+        fig.savefig(tmp_path, dpi=120)
+        plt.close(fig)
+        os.replace(tmp_path, self.clearance_plot_path)
+        self.last_plot_save_time = now
 
 
 @torch.jit.script
@@ -441,11 +710,16 @@ def compute_reward(
     prev_action,
     curriculum_progress_fraction,
     parameter_dict,
+    ground_clearance,
+    ground_hit,
+    target_ground_clearance,
+    ground_height_reward_magnitude,
+    ground_height_reward_exponent,
 ):
-    # type: (Tensor, Tensor, Tensor, Tensor, Tensor, float, Dict[str, Tensor]) -> Tuple[Tensor, Tensor]
+    # type: (Tensor, Tensor, Tensor, Tensor, Tensor, float, Dict[str, Tensor], Tensor, Tensor, float, float, float) -> Tuple[Tensor, Tensor]
     MULTIPLICATION_FACTOR_REWARD = 1.0 + (2.0) * curriculum_progress_fraction
-    dist = torch.norm(pos_error, dim=1)
-    prev_dist_to_goal = torch.norm(prev_pos_error, dim=1)
+    dist = torch.norm(pos_error[:, :2], dim=1)
+    prev_dist_to_goal = torch.norm(prev_pos_error[:, :2], dim=1)
     pos_reward = exponential_reward_function(
         parameter_dict["pos_reward_magnitude"],
         parameter_dict["pos_reward_exponent"],
@@ -471,35 +745,37 @@ def compute_reward(
         parameter_dict["x_action_diff_penalty_exponent"],
         action_diff[:, 0],
     )
-    z_diff_penalty = exponential_penalty_function(
-        parameter_dict["z_action_diff_penalty_magnitude"],
-        parameter_dict["z_action_diff_penalty_exponent"],
-        action_diff[:, 2],
-    )
     yawrate_diff_penalty = exponential_penalty_function(
         parameter_dict["yawrate_action_diff_penalty_magnitude"],
         parameter_dict["yawrate_action_diff_penalty_exponent"],
         action_diff[:, 3],
     )
-    action_diff_penalty = x_diff_penalty + z_diff_penalty + yawrate_diff_penalty
+    action_diff_penalty = x_diff_penalty + yawrate_diff_penalty
     # absolute action penalty
     x_absolute_penalty = curriculum_progress_fraction * exponential_penalty_function(
         parameter_dict["x_absolute_action_penalty_magnitude"],
         parameter_dict["x_absolute_action_penalty_exponent"],
         action[:, 0],
     )
-    z_absolute_penalty = curriculum_progress_fraction * exponential_penalty_function(
-        parameter_dict["z_absolute_action_penalty_magnitude"],
-        parameter_dict["z_absolute_action_penalty_exponent"],
-        action[:, 2],
-    )
     yawrate_absolute_penalty = curriculum_progress_fraction * exponential_penalty_function(
         parameter_dict["yawrate_absolute_action_penalty_magnitude"],
         parameter_dict["yawrate_absolute_action_penalty_exponent"],
         action[:, 3],
     )
-    absolute_action_penalty = x_absolute_penalty + z_absolute_penalty + yawrate_absolute_penalty
+    absolute_action_penalty = x_absolute_penalty + yawrate_absolute_penalty
     total_action_penalty = action_diff_penalty + absolute_action_penalty
+
+    # A missed ray contributes no height reward rather than treating the miss as ground.
+    ground_height_reward = exponential_reward_function(
+        ground_height_reward_magnitude,
+        ground_height_reward_exponent,
+        ground_clearance - target_ground_clearance,
+    )
+    ground_height_reward = torch.where(
+        ground_hit > 0,
+        ground_height_reward,
+        torch.zeros_like(ground_height_reward),
+    )
 
     # combined reward
     reward = (
@@ -511,6 +787,7 @@ def compute_reward(
             + distance_from_goal_reward
         )
         + total_action_penalty
+        + ground_height_reward
     )
 
     reward[:] = torch.where(
