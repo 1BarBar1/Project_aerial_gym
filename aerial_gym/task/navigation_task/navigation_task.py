@@ -738,7 +738,7 @@ def compute_reward(
         2.0 * parameter_dict["getting_closer_reward_multiplier"] * getting_closer,
     )
 
-    distance_from_goal_reward = (20.0 - dist) / 20.0
+    distance_from_goal_reward = torch.clamp((40.0 - dist) / 40.0, min=0.0)
     action_diff = action - prev_action
     x_diff_penalty = exponential_penalty_function(
         parameter_dict["x_action_diff_penalty_magnitude"],
@@ -766,6 +766,8 @@ def compute_reward(
     total_action_penalty = action_diff_penalty + absolute_action_penalty
 
     # A missed ray contributes no height reward rather than treating the miss as ground.
+    # Keep height reward small and positive (<= 1.5/step) so survival beats crashing (-100)
+    # without letting hovering beat forward progress and the goal bonus.
     ground_height_reward = exponential_reward_function(
         ground_height_reward_magnitude,
         ground_height_reward_exponent,
@@ -777,6 +779,12 @@ def compute_reward(
         torch.zeros_like(ground_height_reward),
     )
 
+    goal_reached_reward = torch.where(
+        dist < 1.0,
+        parameter_dict["goal_reached_bonus"] * torch.ones_like(dist),
+        torch.zeros_like(dist),
+    )
+
     # combined reward
     reward = (
         MULTIPLICATION_FACTOR_REWARD
@@ -785,6 +793,7 @@ def compute_reward(
             + very_close_to_goal_reward
             + getting_closer_reward
             + distance_from_goal_reward
+            + goal_reached_reward
         )
         + total_action_penalty
         + ground_height_reward

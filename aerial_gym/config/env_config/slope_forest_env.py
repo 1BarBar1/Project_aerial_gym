@@ -43,13 +43,13 @@ class ForestEnvSlopedCfg:
         include_asset_type = {
             "trees": True,
             "objects": False,
-            "bottom_wall": True,
+            "bottom_wall": False,
             "top_wall": False,
             "left_wall": False,
             "right_wall": False,
             "front_wall": False,
             "back_wall": False,
-            "terrain": False,
+            "terrain": True,
         }
 
         asset_type_to_dict_map = {

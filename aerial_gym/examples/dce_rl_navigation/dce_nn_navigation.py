@@ -5,6 +5,7 @@ import isaacgym
 import torch
 from aerial_gym.rl_training.sample_factory.aerialgym_examples.train_aerialgym import (
     parse_aerialgym_cfg,
+    register_aerialgym_custom_components,
 )
 from aerial_gym.utils import get_args
 from aerial_gym.registry.task_registry import task_registry
@@ -182,8 +183,8 @@ def sample_command(args):
 
 def get_network(num_envs):
     """Script entry point."""
-    # register_aerialgym_custom_components()
     cfg = parse_aerialgym_cfg(evaluation=True)
+    register_aerialgym_custom_components(env=cfg.env, cfg=cfg)
     print("CFG is:", cfg)
     nn_model = NN_Inference_Class(num_envs, 3, 81, cfg)
     return nn_model

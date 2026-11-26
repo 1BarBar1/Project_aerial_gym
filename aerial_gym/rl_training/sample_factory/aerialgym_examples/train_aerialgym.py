@@ -13,10 +13,13 @@ import gymnasium as gym
 import torch
 
 
-from torch import Tensor
+from torch import Tensor, nn
+from torch.nn.utils.rnn import PackedSequence
 
 from sample_factory.algo.utils.context import global_model_factory
+from sample_factory.model.core import ModelCore, default_make_core_func
 from sample_factory.model.encoder import *
+from sample_factory.model.encoder import Encoder, default_make_encoder_func
 
 
 from sample_factory.algo.utils.gymnasium_utils import convert_space
@@ -24,7 +27,7 @@ from sample_factory.cfg.arguments import parse_full_cfg, parse_sf_args
 from sample_factory.envs.env_utils import register_env
 from sample_factory.train import run_rl
 from sample_factory.utils.typing import Config, Env
-from sample_factory.utils.utils import str2bool
+from sample_factory.utils.utils import log, str2bool
 
 
 from sample_factory.enjoy import enjoy
@@ -76,8 +79,12 @@ def make_aerialgym_env(
     _env_config=None,
     render_mode: Optional[str] = None,
 ) -> Env:
-
-    return AerialGymVecEnv(task_registry.make_task(task_name=full_task_name), "obs")
+    num_envs = cfg.env_agents if getattr(cfg, "env_agents", -1) > 0 else None
+    headless = False if render_mode == "human" else None
+    return AerialGymVecEnv(
+        task_registry.make_task(task_name=full_task_name, num_envs=num_envs, headless=headless),
+        "obs",
+    )
 
 
 def add_extra_params_func(parser):
@@ -118,6 +125,36 @@ def add_extra_params_func(parser):
         default=False,
         type=str2bool,
         help="Whether to collect env stats during evaluation.",
+    )
+    p.add_argument(
+        "--use_visual_lstm",
+        default=False,
+        type=str2bool,
+        help="Pass visual latent features (obs[:, 17:]) through an nn.LSTM before concatenating with the 17-dim drone state vector.",
+    )
+    p.add_argument(
+        "--lstm_hidden_size",
+        default=64,
+        type=int,
+        help="Hidden size of the visual latent nn.LSTM.",
+    )
+    p.add_argument(
+        "--lstm_num_layers",
+        default=1,
+        type=int,
+        help="Number of layers in the visual latent nn.LSTM.",
+    )
+    p.add_argument(
+        "--freeze_lstm",
+        default=False,
+        type=str2bool,
+        help="If True, freeze visual LSTM weights (requires_grad=False, eval mode, no_grad forward, excluded from optimizer).",
+    )
+    p.add_argument(
+        "--lstm_checkpoint_path",
+        default=None,
+        type=str,
+        help="Optional path to a standalone LSTM checkpoint (.pth) to load at startup or evaluation.",
     )
 
 
@@ -192,11 +229,17 @@ env_configs = dict(
     ),
     navigation_task=dict(
         train_for_env_steps=131000000000,
-        encoder_mlp_layers=[256, 128, 64],
+        encoder_mlp_layers=[],
+        decoder_mlp_layers=[256, 128, 64],
+        use_visual_lstm=True,
+        lstm_hidden_size=64,
+        lstm_num_layers=1,
+        freeze_lstm=False,
+        lstm_checkpoint_path=None,
         use_rnn=True,
         rnn_num_layers=1,
         rnn_size=64,
-        rnn_type="gru",
+        rnn_type="lstm",
         gamma=0.98,
         rollout=32,
         learning_rate=1e-4,
@@ -326,14 +369,173 @@ class CustomEncoder(Encoder):
 def make_custom_encoder(cfg, obs_space):
     return CustomEncoder(cfg, obs_space)
 
+
+STATE_VEC_DIM = 17
+
+
+class VisualStateSplitEncoder(Encoder):
+    """
+    Passes through the 17-dim proprioceptive state and detached visual latent vector
+    so the recurrent visual LSTM inside VisualLSTMCore processes only the visual latents.
+    """
+
+    def __init__(self, cfg, obs_space):
+        super().__init__(cfg)
+        self.obs_key = "obs" if "obs" in obs_space.spaces else "observations"
+        self.obs_dim = obs_space[self.obs_key].shape[0]
+        self.state_dim = STATE_VEC_DIM
+        assert self.obs_dim > self.state_dim, f"Expected obs_dim > {self.state_dim}, got {self.obs_dim}"
+        self.visual_dim = self.obs_dim - self.state_dim
+
+    def forward(self, obs_dict):
+        x = obs_dict[self.obs_key]
+        x_state = x[:, : self.state_dim]
+        # Defense-in-depth: keep upstream frozen VAE features detached from policy gradients.
+        x_visual = x[:, self.state_dim :].detach()
+        return torch.cat([x_state, x_visual], dim=-1)
+
+    def get_out_size(self) -> int:
+        return self.obs_dim
+
+
+class VisualLSTMCore(ModelCore):
+    """
+    Sample Factory ModelCore that applies an nn.LSTM strictly to the visual latent slice
+    and concatenates the LSTM output with the untouched 17-dim drone state vector.
+    """
+
+    def __init__(self, cfg, input_size):
+        super().__init__(cfg)
+        self.cfg = cfg
+        self.state_dim = STATE_VEC_DIM
+        assert input_size > self.state_dim, f"Expected input_size > {self.state_dim}, got {input_size}"
+        self.visual_dim = input_size - self.state_dim
+        self.hidden_size = int(getattr(cfg, "lstm_hidden_size", cfg.rnn_size))
+        self.num_layers = int(getattr(cfg, "lstm_num_layers", cfg.rnn_num_layers))
+        self.freeze_lstm = bool(getattr(cfg, "freeze_lstm", False))
+
+        self.visual_lstm = nn.LSTM(self.visual_dim, self.hidden_size, self.num_layers)
+        self.core_output_size = self.state_dim + self.hidden_size
+        self._apply_freeze_state()
+
+    def _apply_freeze_state(self):
+        if self.freeze_lstm:
+            for param in self.visual_lstm.parameters():
+                param.requires_grad = False
+            self.visual_lstm.eval()
+
+    def train(self, mode: bool = True):
+        super().train(mode)
+        if self.freeze_lstm:
+            self.visual_lstm.eval()
+        return self
+
+    def load_lstm_checkpoint(self, path: str, device=None):
+        ckpt = torch.load(path, map_location=device)
+        state_dict = ckpt["state_dict"] if isinstance(ckpt, dict) and "state_dict" in ckpt else ckpt
+        self.visual_lstm.load_state_dict(state_dict)
+        self._apply_freeze_state()
+        log.info("Loaded standalone visual LSTM checkpoint from %s (freeze_lstm=%s)", path, self.freeze_lstm)
+
+    def forward(self, head_output, rnn_states):
+        is_seq = not torch.is_tensor(head_output)
+
+        if self.num_layers > 1:
+            rnn_states = rnn_states.view(rnn_states.size(0), self.num_layers, -1)
+            rnn_states = rnn_states.permute(1, 0, 2)
+        else:
+            rnn_states = rnn_states.unsqueeze(0)
+
+        h, c = torch.split(rnn_states, self.hidden_size, dim=2)
+        h_in, c_in = h.contiguous(), c.contiguous()
+
+        if is_seq:
+            state_data = head_output.data[:, : self.state_dim]
+            visual_data = head_output.data[:, self.state_dim :].detach()
+            visual_in = PackedSequence(
+                visual_data,
+                head_output.batch_sizes,
+                head_output.sorted_indices,
+                head_output.unsorted_indices,
+            )
+        else:
+            state_data = head_output[:, : self.state_dim]
+            visual_in = head_output[:, self.state_dim :].detach().unsqueeze(0)
+
+        if self.freeze_lstm:
+            with torch.no_grad():
+                lstm_out, (h_out, c_out) = self.visual_lstm(visual_in, (h_in, c_in))
+        else:
+            lstm_out, (h_out, c_out) = self.visual_lstm(visual_in, (h_in, c_in))
+
+        if is_seq:
+            concat_data = torch.cat([state_data, lstm_out.data], dim=-1)
+            out = PackedSequence(
+                concat_data,
+                head_output.batch_sizes,
+                head_output.sorted_indices,
+                head_output.unsorted_indices,
+            )
+        else:
+            out = torch.cat([state_data, lstm_out.squeeze(0)], dim=-1)
+
+        new_rnn_states = torch.cat((h_out, c_out), dim=2)
+        if self.num_layers > 1:
+            new_rnn_states = new_rnn_states.permute(1, 0, 2)
+            new_rnn_states = new_rnn_states.reshape(new_rnn_states.size(0), -1)
+        else:
+            new_rnn_states = new_rnn_states.squeeze(0)
+
+        if self.freeze_lstm:
+            new_rnn_states = new_rnn_states.detach()
+
+        return out, new_rnn_states
+
+
+def _use_visual_lstm_architecture(cfg) -> bool:
+    return bool(getattr(cfg, "use_visual_lstm", False)) and getattr(cfg, "rnn_type", None) == "lstm"
+
+
+def make_visual_state_split_encoder(cfg, obs_space):
+    if _use_visual_lstm_architecture(cfg):
+        return VisualStateSplitEncoder(cfg, obs_space)
+    return default_make_encoder_func(cfg, obs_space)
+
+
+def make_visual_lstm_core(cfg, core_input_size):
+    if _use_visual_lstm_architecture(cfg):
+        return VisualLSTMCore(cfg, core_input_size)
+    return default_make_core_func(cfg, core_input_size)
+
+
 CUSTOM_ENCODER_ENVS = {"lidar_navigation_task"}
 
-def register_aerialgym_custom_components(env=None):
+def register_aerialgym_custom_components(env=None, cfg=None):
     for env_name in env_configs:
         register_env(env_name, make_aerialgym_env)
 
     if env in CUSTOM_ENCODER_ENVS:
         global_model_factory().register_encoder_factory(make_custom_encoder)
+    else:
+        global_model_factory().register_encoder_factory(make_visual_state_split_encoder)
+        global_model_factory().register_model_core_factory(make_visual_lstm_core)
+
+
+def _sync_visual_lstm_cfg(cfg):
+    if getattr(cfg, "use_visual_lstm", False):
+        cfg.use_rnn = True
+        cfg.rnn_type = "lstm"
+        cfg.rnn_size = cfg.lstm_hidden_size
+        cfg.rnn_num_layers = cfg.lstm_num_layers
+        if not getattr(cfg, "decoder_mlp_layers", None):
+            cfg.decoder_mlp_layers = [256, 128, 64]
+        if hasattr(cfg, "cli_args") and isinstance(cfg.cli_args, dict):
+            if any(k in cfg.cli_args for k in ("use_visual_lstm", "lstm_hidden_size", "lstm_num_layers")):
+                cfg.cli_args["use_rnn"] = cfg.use_rnn
+                cfg.cli_args["rnn_type"] = cfg.rnn_type
+                cfg.cli_args["rnn_size"] = cfg.rnn_size
+                cfg.cli_args["rnn_num_layers"] = cfg.rnn_num_layers
+    return cfg
 
 
 def parse_aerialgym_cfg(evaluation=False):
@@ -341,7 +543,7 @@ def parse_aerialgym_cfg(evaluation=False):
     add_extra_params_func(parser)
     override_default_params_func(partial_cfg.env, parser)
     final_cfg = parse_full_cfg(parser)
-    return final_cfg
+    return _sync_visual_lstm_cfg(final_cfg)
 
 
 from sample_factory.model.actor_critic import create_actor_critic
@@ -353,7 +555,7 @@ def main():
     # the custom encoder only for envs that need it.  run_rl() only requires
     # envs/encoders to be registered, not the cfg parse, so this order is safe.
     cfg = parse_aerialgym_cfg()
-    register_aerialgym_custom_components(env=cfg.env)
+    register_aerialgym_custom_components(env=cfg.env, cfg=cfg)
     status = run_rl(cfg)
     return status
     

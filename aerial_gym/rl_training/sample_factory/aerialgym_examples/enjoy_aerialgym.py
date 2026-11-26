@@ -16,8 +16,8 @@ from aerial_gym.rl_training.sample_factory.aerialgym_examples.train_aerialgym im
 
 def main():
     """Script entry point."""
-    register_aerialgym_custom_components()
     cfg = parse_aerialgym_cfg(evaluation=True)
+    register_aerialgym_custom_components(env=cfg.env, cfg=cfg)
     status = enjoy(cfg)
     return status
 

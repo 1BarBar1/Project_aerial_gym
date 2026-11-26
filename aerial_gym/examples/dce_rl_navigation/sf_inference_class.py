@@ -56,6 +56,11 @@ class NN_Inference_Class(nn.Module):
         )
         checkpoint_dict = Learner.load_checkpoint(checkpoints, self.device)
         self.actor_critic.load_state_dict(checkpoint_dict["model"])
+        lstm_ckpt_path = getattr(self.cfg, "lstm_checkpoint_path", None)
+        if lstm_ckpt_path:
+            core = getattr(self.actor_critic, "core", None)
+            if core is not None and hasattr(core, "load_lstm_checkpoint"):
+                core.load_lstm_checkpoint(lstm_ckpt_path, device=self.device)
         self.rnn_states = torch.zeros(
             [self.num_agents, get_rnn_size(self.cfg)],
             dtype=torch.float32,

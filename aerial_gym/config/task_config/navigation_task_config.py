@@ -23,15 +23,15 @@ class task_config:
     )
     # user can set the above to true if they so desire
 
-    target_min_ratio = [0.9, 0.5, 0.1]  # target ratio w.r.t environment bounds in x,y,z
-    target_max_ratio = [0.90, 0.5, 0.1]  # target ratio w.r.t environment bounds in x,y,z
+    target_min_ratio = [0.1, 0.1, 0.1]  # target ratio w.r.t environment bounds in x,y,z
+    target_max_ratio = [0.90, 0.9, 0.1]  # target ratio w.r.t environment bounds in x,y,z
     ground_ray_max_distance = 100.0
     target_ground_clearance = 2.0
 
     reward_parameters = {
-        "pos_reward_magnitude": 5.0,
+        "pos_reward_magnitude": 2.0,
         "pos_reward_exponent": 1.0 / 3.5,
-        "very_close_to_goal_reward_magnitude": 5.0,
+        "very_close_to_goal_reward_magnitude": 2.0,
         "very_close_to_goal_reward_exponent": 2.0,
         "getting_closer_reward_multiplier": 10.0,
         "x_action_diff_penalty_magnitude": 0.8,
@@ -48,8 +48,9 @@ class task_config:
         "yawrate_absolute_action_penalty_exponent": 2.0,
         "ray_cast_distance_penalty_magnitude": 0.1,
         "ray_cast_distance_penalty_exponent": 1.0,
-        "ground_height_reward_magnitude": 20.0,
+        "ground_height_reward_magnitude": 1.5,
         "ground_height_reward_exponent": 0.5,
+        "goal_reached_bonus": 600.0,
         "collision_penalty": -100.0,
     }
 
